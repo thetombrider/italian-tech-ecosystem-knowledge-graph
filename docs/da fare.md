@@ -59,3 +59,6 @@ Importare dati di altri player importanti dell'ecosistema italiano:
 - **Relazioni Founding**: 517
 - **Relazioni Investment**: 138
 - **Coverage**: Principalmente C14.so (startup italiane emergenti)
+
+
+- fare un frontend react decente
