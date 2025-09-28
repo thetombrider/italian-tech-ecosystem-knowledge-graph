@@ -70,7 +70,7 @@ def main():
     # Main navigation
     page = st.sidebar.selectbox(
         "Choose a page:",
-        ["📊 Dashboard", "➕ Add Entity", "🔗 Add Relationship", "🔍 Search & Browse", "🌐 Graph Visualization", "📤 CSV Import"]
+        ["📊 Dashboard", "➕ Add Entity", "🔗 Add Relationship", "🔍 Search & Browse", "🌐 Graph Visualization", "📤 CSV Import", "🕷️ C14 Scraper"]
     )
     
     if page == "📊 Dashboard":
@@ -85,6 +85,8 @@ def main():
         show_graph_visualization()
     elif page == "📤 CSV Import":
         show_csv_import()
+    elif page == "🕷️ C14 Scraper":
+        show_c14_scraper()
 
 def show_dashboard():
     """Display database statistics and overview"""
@@ -1658,6 +1660,177 @@ def show_import_documentation():
     - **Invalid Dates**: Use supported date formats
     - **Referenced Entity Not Found**: Import entities before relationships
     - **Duplicate Names**: Each entity name must be unique
+    """)
+
+def show_c14_scraper():
+    """C14.so scraper interface"""
+    st.header("🕷️ C14.so Startup Database Scraper")
+    
+    st.markdown("""
+    ### Scrape Italian Startups from C14.so
+    
+    C14.so è un database open-source di startup italiane. Questo strumento ti permette di:
+    - Estrarre automaticamente dati delle startup italiane
+    - Convertire i dati nel formato compatibile con il nostro sistema
+    - Importare direttamente nel knowledge graph
+    """)
+    
+    with st.expander("⚙️ Configurazione Scraping"):
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            max_pages = st.number_input(
+                "Massimo numero di pagine",
+                min_value=1,
+                max_value=20,
+                value=3,
+                help="Ogni pagina contiene ~25 startup"
+            )
+            
+            delay = st.slider(
+                "Delay tra richieste (secondi)",
+                min_value=0.5,
+                max_value=5.0,
+                value=1.0,
+                step=0.5,
+                help="Rate limiting per essere rispettosi del server"
+            )
+        
+        with col2:
+            max_startups = st.number_input(
+                "Massimo numero di startup",
+                min_value=1,
+                max_value=500,
+                value=50,
+                help="Limita il numero totale di startup da scrapare"
+            )
+            
+            output_filename = st.text_input(
+                "Nome file output",
+                value="c14_startups_scraped.csv",
+                help="Nome del file CSV di output"
+            )
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        if st.button("🚀 Avvia Scraping", type="primary"):
+            try:
+                from app.c14_scraper import C14Scraper
+                
+                progress_bar = st.progress(0)
+                status_text = st.empty()
+                
+                status_text.text("Inizializzazione scraper...")
+                scraper = C14Scraper(delay=delay)
+                
+                status_text.text("Recupero lista startup...")
+                progress_bar.progress(10)
+                
+                with st.spinner("Scraping in corso... Questo potrebbe richiedere alcuni minuti."):
+                    startups = scraper.scrape_all_startups(
+                        max_pages=max_pages,
+                        max_startups=max_startups
+                    )
+                
+                progress_bar.progress(80)
+                status_text.text("Salvataggio dati...")
+                
+                if startups:
+                    filename = scraper.save_to_csv(startups, output_filename)
+                    progress_bar.progress(100)
+                    status_text.text("✅ Scraping completato!")
+                    
+                    st.success(f"🎉 Scraped con successo {len(startups)} startup!")
+                    
+                    # Show preview
+                    st.subheader("📋 Preview dei dati")
+                    df = pd.read_csv(filename)
+                    st.dataframe(df.head(10), use_container_width=True)
+                    
+                    # Download button
+                    with open(filename, 'rb') as file:
+                        st.download_button(
+                            label="📥 Scarica CSV",
+                            data=file.read(),
+                            file_name=filename,
+                            mime="text/csv"
+                        )
+                    
+                    # Import option
+                    st.subheader("📤 Importa nel Database")
+                    if st.button("Importa startup nel Neo4j", type="secondary"):
+                        importer = CSVImporter(st.session_state.repo)
+                        
+                        with st.spinner("Importazione in corso..."):
+                            results = importer.import_entities(df, 'Startup')
+                        
+                        # Show results
+                        if results['successful'] > 0:
+                            st.success(f"✅ Importate {results['successful']} startup su {results['total']}")
+                        
+                        if results['failed'] > 0:
+                            st.warning(f"⚠️ {results['failed']} import falliti")
+                            
+                        if results['errors']:
+                            with st.expander("Errori di importazione"):
+                                for error in results['errors'][:10]:  # Show first 10 errors
+                                    st.error(error)
+                
+                else:
+                    st.error("❌ Nessuna startup trovata. Verifica la configurazione.")
+                    
+            except ImportError:
+                st.error("❌ Modulo scraper non trovato. Installa le dipendenze necessarie.")
+            except Exception as e:
+                st.error(f"❌ Errore durante lo scraping: {str(e)}")
+    
+    with col2:
+        if st.button("📊 Test Connessione C14"):
+            try:
+                import requests
+                response = requests.get("https://www.c14.so", timeout=10)
+                if response.status_code == 200:
+                    st.success("✅ C14.so è raggiungibile")
+                else:
+                    st.warning(f"⚠️ C14.so risponde con status code: {response.status_code}")
+            except Exception as e:
+                st.error(f"❌ Errore di connessione: {str(e)}")
+    
+    with col3:
+        if st.button("📖 Visualizza Template"):
+            # Show template structure
+            st.subheader("📋 Template CSV Output")
+            template_data = {
+                'name': ['Esempio Startup', 'Another Company'],
+                'description': ['Descrizione della startup', 'Altra descrizione'],
+                'website': ['https://example.com', 'https://another.com'],
+                'founded_year': [2020, 2019],
+                'stage': ['Seed', 'Series A'],
+                'sector': ['FinTech', 'HealthTech'],
+                'headquarters': ['Milano, Italy', 'Roma, Italy'],
+                'employee_count': [10, 25],
+                'status': ['active', 'active']
+            }
+            st.dataframe(pd.DataFrame(template_data), use_container_width=True)
+    
+    st.markdown("""
+    ### ℹ️ Informazioni
+    
+    **Cosa viene estratto:**
+    - Nome e descrizione della startup
+    - Sito web e profilo LinkedIn
+    - Informazioni di base (location, anno fondazione, team size)
+    - Settore di attività
+    - Stato di finanziamento
+    - Team members (quando disponibili)
+    - Investitori (quando disponibili)
+    
+    **Note:**
+    - I dati vengono estratti rispettando i rate limits del server
+    - Alcuni campi potrebbero essere vuoti se non disponibili su C14
+    - Il processo può richiedere diversi minuti per grandi quantità di dati
+    - I dati vengono salvati in formato CSV compatibile con il nostro sistema di import
     """)
 
 if __name__ == "__main__":
