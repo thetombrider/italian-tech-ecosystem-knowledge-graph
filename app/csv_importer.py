@@ -59,9 +59,12 @@ class CSVImporter:
             # Count occurrences of potential separators
             comma_count = first_line.count(',')
             semicolon_count = first_line.count(';')
+            pipe_count = first_line.count('|')
             
-            # Determine separator
-            if semicolon_count > comma_count:
+            # Determine separator (prioritize pipe for C14 scraped files)
+            if pipe_count > 0:
+                separator = '|'
+            elif semicolon_count > comma_count:
                 separator = ';'
             else:
                 separator = ','
@@ -184,6 +187,35 @@ class CSVImporter:
         except (ValueError, TypeError):
             return default
     
+    def parse_employee_count(self, value: Any) -> Optional[int]:
+        """Parse employee count, handling ranges like '11-50'"""
+        if pd.isna(value) or not value:
+            return None
+        
+        value_str = str(value).strip()
+        
+        # Handle ranges like "11-50"
+        if '-' in value_str:
+            parts = value_str.split('-')
+            try:
+                # Return the midpoint of the range
+                min_val = int(parts[0].strip())
+                max_val = int(parts[1].strip())
+                return (min_val + max_val) // 2
+            except (ValueError, IndexError):
+                pass
+        
+        # Extract single number
+        import re
+        number_match = re.search(r'\d+', value_str)
+        if number_match:
+            try:
+                return int(number_match.group())
+            except ValueError:
+                pass
+        
+        return None
+    
     def import_entities(self, df: pd.DataFrame, entity_type: str) -> Dict[str, Any]:
         """Import entities from DataFrame"""
         results = {
@@ -294,7 +326,7 @@ class CSVImporter:
                     'sector': row.get('sector'),
                     'business_model': row.get('business_model'),
                     'headquarters': row.get('headquarters'),
-                    'employee_count': self.parse_number(row.get('employee_count')) if row.get('employee_count') else None,
+                    'employee_count': self.parse_employee_count(row.get('employee_count')),
                     'status': row.get('status', 'active'),
                     'total_funding': self.parse_number(row.get('total_funding')) if row.get('total_funding') else None,
                     'last_funding_date': self.parse_date(row.get('last_funding_date')),
@@ -377,7 +409,7 @@ class CSVImporter:
                     'founded_year': self.parse_number(row.get('founded_year')) if row.get('founded_year') else None,
                     'headquarters': row.get('headquarters'),
                     'revenue': self.parse_number(row.get('revenue')) if row.get('revenue') else None,
-                    'employee_count': self.parse_number(row.get('employee_count')) if row.get('employee_count') else None,
+                    'employee_count': self.parse_employee_count(row.get('employee_count')),
                     'stock_exchange': row.get('stock_exchange'),
                     'ticker': row.get('ticker'),
                     'has_cvc_arm': self.parse_boolean(row.get('has_cvc_arm')),

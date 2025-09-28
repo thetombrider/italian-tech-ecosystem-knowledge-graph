@@ -11,7 +11,7 @@ import logging
 import re
 import time
 from typing import Dict, List, Optional, Tuple
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, urlunparse, parse_qs
 import json
 from dataclasses import dataclass
 from datetime import datetime
@@ -45,6 +45,70 @@ class StartupData:
         if self.investors is None:
             self.investors = []
 
+@dataclass
+class PersonData:
+    name: str
+    surname: str = ""
+    role_type: str = ""
+    linkedin_url: str = ""
+    twitter_handle: str = ""
+    biography: str = ""
+    location: str = ""
+    birth_year: Optional[int] = None
+    education: str = ""
+    previous_experience: str = ""
+    specialization: str = ""
+    reputation_score: Optional[float] = None
+
+@dataclass
+class InvestorData:
+    name: str
+    description: str = ""
+    website: str = ""
+    founded_year: Optional[int] = None
+    headquarters: str = ""
+    type: str = "VC_Firm"  # or Angel_Syndicate
+    investment_focus: str = ""
+    stage_focus: str = ""
+    geographic_focus: str = ""
+    team_size: Optional[int] = None
+    assets_under_management: Optional[float] = None
+    portfolio_companies_count: Optional[int] = None
+
+def clean_url(url: str) -> str:
+    """Remove UTM parameters and other tracking parameters from URL"""
+    if not url:
+        return url
+    
+    try:
+        parsed = urlparse(url)
+        # Parse query parameters
+        query_params = parse_qs(parsed.query)
+        
+        # Remove UTM and tracking parameters
+        tracking_params = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
+        for param in tracking_params:
+            query_params.pop(param, None)
+        
+        # Rebuild query string
+        if query_params:
+            # Flatten the query params (parse_qs returns lists)
+            clean_params = []
+            for key, values in query_params.items():
+                for value in values:
+                    clean_params.append(f"{key}={value}")
+            clean_query = "&".join(clean_params)
+        else:
+            clean_query = ""
+        
+        # Rebuild the URL
+        clean_parsed = parsed._replace(query=clean_query)
+        return urlunparse(clean_parsed)
+    
+    except Exception as e:
+        logger.warning(f"Error cleaning URL {url}: {e}")
+        return url
+
 class C14Scraper:
     """Scraper for C14.so Italian startup database"""
     
@@ -55,6 +119,12 @@ class C14Scraper:
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         })
+        
+        # Collections for people and relationships
+        self.all_founders = []
+        self.all_investors = []
+        self.founding_relationships = []
+        self.investment_relationships = []
         
     def get_startup_links(self, max_pages: int = None) -> List[Tuple[str, str, str]]:
         """
@@ -150,13 +220,22 @@ class C14Scraper:
             if img_element:
                 logo_url = img_element.get('src', '')
             
-            # Description (usually after the title)
-            desc_candidates = soup.find_all(['p', 'div'], string=re.compile(r'.{20,}'))
-            for candidate in desc_candidates:
-                text = candidate.get_text(strip=True)
-                if len(text) > 20 and not text.startswith('http'):
-                    description = text
-                    break
+            # Description using the correct CSS selector
+            desc_element = soup.select_one('.prose > p:nth-child(1)')
+            if desc_element:
+                description = desc_element.get_text(strip=True)
+                # Remove line breaks and normalize whitespace
+                description = ' '.join(description.split())
+            else:
+                # Fallback to previous method
+                desc_candidates = soup.find_all(['p', 'div'], string=re.compile(r'.{20,}'))
+                for candidate in desc_candidates:
+                    text = candidate.get_text(strip=True)
+                    # Remove line breaks and normalize whitespace
+                    text = ' '.join(text.split())
+                    if len(text) > 20 and not text.startswith('http'):
+                        description = text
+                        break
             
             # Links (website, linkedin)
             links = soup.find_all('a', href=True)
@@ -165,84 +244,102 @@ class C14Scraper:
                 text = link.get_text(strip=True).lower()
                 
                 if 'visit website' in text or 'website' in text:
-                    website = href
+                    website = clean_url(href)
                 elif 'linkedin' in text or 'linkedin.com' in href:
-                    linkedin = href
+                    linkedin = clean_url(href)
             
-            # Company details (usually in sidebar or info section)
+            # Company details using label-based approach for better reliability
             location = ""
             foundation_date = ""
             team_size = ""
             funding_stage = ""
             amount_raised = ""
             
-            # Look for structured data
-            info_elements = soup.find_all(['dt', 'dd', 'div', 'span'])
-            current_field = None
+            # Find all div.border-default elements
+            border_divs = soup.select('div.border-default')
             
-            for element in info_elements:
-                text = element.get_text(strip=True)
-                
-                if 'location' in text.lower():
-                    current_field = 'location'
-                elif 'foundation' in text.lower() or 'founded' in text.lower():
-                    current_field = 'foundation_date'
-                elif 'team size' in text.lower():
-                    current_field = 'team_size'
-                elif 'funding stage' in text.lower():
-                    current_field = 'funding_stage'
-                elif 'amount raised' in text.lower() or 'raised' in text.lower():
-                    current_field = 'amount_raised'
-                elif current_field and not any(word in text.lower() for word in ['location', 'foundation', 'team', 'funding', 'amount']):
-                    if current_field == 'location':
-                        location = text
-                    elif current_field == 'foundation_date':
-                        foundation_date = text
-                    elif current_field == 'team_size':
-                        team_size = text
-                    elif current_field == 'funding_stage':
-                        funding_stage = text
-                    elif current_field == 'amount_raised':
-                        amount_raised = text
-                    current_field = None
+            for div in border_divs:
+                # Look for divs with p elements that have labels
+                child_divs = div.find_all('div', recursive=False)
+                for child_div in child_divs:
+                    p_elements = child_div.find_all('p', recursive=False)
+                    if len(p_elements) >= 2:
+                        label = p_elements[0].get_text(strip=True).lower()
+                        value = p_elements[1].get_text(strip=True)
+                        
+                        if 'team size' in label:
+                            team_size = value
+                        elif 'location' in label:
+                            location = value
+                        elif 'foundation' in label:
+                            foundation_date = value
+                        elif 'funding stage' in label:
+                            funding_stage = value
+                        elif 'amount raised' in label:
+                            amount_raised = value
             
-            # Extract sectors from page content or links
+            # Extract sectors using correct CSS selector
             sectors = []
-            sector_candidates = soup.find_all(['span', 'div', 'a'], class_=re.compile(r'tag|category|sector'))
-            for candidate in sector_candidates:
-                sector_text = candidate.get_text(strip=True)
-                if sector_text and len(sector_text) < 50:
-                    sectors.append(sector_text)
+            sector_element = soup.select_one('div.gap-1:nth-child(3)')
+            if sector_element:
+                # Get all sector tags within this element
+                sector_tags = sector_element.find_all(['span', 'div'])
+                for tag in sector_tags:
+                    sector_text = tag.get_text(strip=True)
+                    if sector_text and len(sector_text) < 50 and sector_text not in sectors:
+                        sectors.append(sector_text)
             
-            # Extract team members
-            team_members = []
-            team_section = soup.find(['div', 'section'], string=re.compile(r'team', re.I))
-            if team_section:
-                team_links = team_section.find_next_siblings() or team_section.find_all('a', href=re.compile(r'linkedin'))
-                for link in team_links[:10]:  # Limit to avoid too much data
-                    member_name = link.get_text(strip=True)
-                    member_linkedin = link.get('href', '')
-                    if member_name and 'linkedin' in member_linkedin:
-                        team_members.append({
-                            'name': member_name,
-                            'linkedin': member_linkedin,
-                            'role': ''  # Could be extracted if available
-                        })
+            # Fallback to previous method if no sectors found
+            if not sectors:
+                sector_candidates = soup.find_all(['span', 'div', 'a'], class_=re.compile(r'tag|category|sector'))
+                for candidate in sector_candidates:
+                    sector_text = candidate.get_text(strip=True)
+                    if sector_text and len(sector_text) < 50:
+                        sectors.append(sector_text)
             
-            # Extract investors
-            investors = []
-            investor_section = soup.find(['div', 'section'], string=re.compile(r'investor', re.I))
-            if investor_section:
-                investor_links = investor_section.find_next_siblings() or investor_section.find_all('a', href=re.compile(r'linkedin'))
-                for link in investor_links[:10]:  # Limit to avoid too much data
-                    investor_name = link.get_text(strip=True)
-                    investor_linkedin = link.get('href', '')
-                    if investor_name and 'linkedin' in investor_linkedin:
-                        investors.append({
-                            'name': investor_name,
-                            'linkedin': investor_linkedin,
-                            'type': 'unknown'
-                        })
+            # Extract founder team members using CSS selectors
+            team_members = self.extract_founders(soup)
+            
+            # Extract investors using CSS selectors
+            investors = self.extract_investors(soup)
+            
+            # Collect founders and relationships
+            for founder in team_members:
+                # Add to founders collection (avoid duplicates)
+                if not any(f['name'] == founder['name'] for f in self.all_founders):
+                    self.all_founders.append(founder)
+                
+                # Add founding relationship
+                self.founding_relationships.append({
+                    'person_name': founder['name'],
+                    'startup_name': name,
+                    'role': founder['role'],
+                    'founding_date': foundation_date,
+                    'equity_percentage': '',
+                    'is_current': 'true',
+                    'exit_date': ''
+                })
+            
+            # Collect investors and relationships
+            for investor in investors:
+                # Add to investors collection (avoid duplicates)
+                if not any(inv['name'] == investor['name'] for inv in self.all_investors):
+                    self.all_investors.append(investor)
+                
+                # Add investment relationship
+                self.investment_relationships.append({
+                    'investor_name': investor['name'],
+                    'investor_type': investor['type'],
+                    'startup_name': name,
+                    'round_stage': funding_stage,
+                    'round_date': '',
+                    'amount': amount_raised,
+                    'valuation_pre': '',
+                    'valuation_post': '',
+                    'is_lead_investor': '',
+                    'board_seats': '',
+                    'equity_percentage': ''
+                })
             
             return StartupData(
                 name=name,
@@ -265,6 +362,89 @@ class C14Scraper:
         except Exception as e:
             logger.error(f"Error scraping startup details from {url}: {e}")
             return None
+    
+    def extract_founders(self, soup) -> List[Dict]:
+        """Extract founder information using CSS selectors"""
+        founders = []
+        
+        try:
+            # Use the specific founder section selector
+            founder_container = soup.select_one('.mb-0 > div:nth-child(7) > div:nth-child(2) > div:nth-child(2)')
+            
+            if founder_container:
+                # Find all LinkedIn links within the founder container only
+                founder_links = founder_container.find_all('a', href=lambda href: href and 'linkedin.com' in href)
+                
+                for link in founder_links:
+                    try:
+                        linkedin_url = clean_url(link.get('href', ''))
+                        
+                        # Extract name from first p element within the link
+                        name_element = link.select_one('div > div > p:nth-child(1)')
+                        name = name_element.get_text(strip=True) if name_element else ""
+                        
+                        # Extract role from second p element within the link
+                        role_element = link.select_one('div > div > p:nth-child(2)')
+                        role = role_element.get_text(strip=True) if role_element else ""
+                        
+                        if name:
+                            founders.append({
+                                'name': name,
+                                'linkedin': linkedin_url,
+                                'role': role
+                            })
+                            
+                    except Exception as e:
+                        logger.warning(f"Error extracting founder data from link: {e}")
+                        continue
+            else:
+                logger.info("No founder container found")
+                    
+        except Exception as e:
+            logger.warning(f"Error in extract_founders: {e}")
+            
+        return founders
+    
+    def extract_investors(self, soup) -> List[Dict]:
+        """Extract investor information using CSS selectors"""
+        investors = []
+        
+        try:
+            # Use the specific investor section selector
+            investor_container = soup.select_one('.mb-0 > div:nth-child(8) > div:nth-child(2) > div:nth-child(2)')
+            
+            if investor_container:
+                # Find all LinkedIn links within the investor container only
+                investor_links = investor_container.find_all('a', href=lambda href: href and 'linkedin.com' in href)
+                
+                for link in investor_links:
+                    try:
+                        linkedin_url = clean_url(link.get('href', ''))
+                        
+                        # Extract name from first p element within the link
+                        name_element = link.select_one('div > div > p:nth-child(1)')
+                        name = name_element.get_text(strip=True) if name_element else ""
+                        
+                        if name:
+                            # Determine investor type based on LinkedIn URL
+                            investor_type = 'VC_Firm' if '/company/' in linkedin_url else 'Angel_Syndicate'
+                            
+                            investors.append({
+                                'name': name,
+                                'linkedin': linkedin_url,
+                                'type': investor_type
+                            })
+                            
+                    except Exception as e:
+                        logger.warning(f"Error extracting investor data from link: {e}")
+                        continue
+            else:
+                logger.info("No investor container found")
+                        
+        except Exception as e:
+            logger.warning(f"Error in extract_investors: {e}")
+            
+        return investors
     
     def scrape_all_startups(self, max_pages: int = None, max_startups: int = None) -> List[StartupData]:
         """
@@ -317,7 +497,7 @@ class C14Scraper:
                 'sector': ', '.join(startup.sectors),
                 'business_model': '',
                 'headquarters': startup.location,
-                'employee_count': self._extract_employee_count(startup.team_size),
+                'employee_count': startup.team_size,
                 'status': 'active',
                 'total_funding': self._extract_funding_amount(startup.amount_raised),
                 'last_funding_date': '',
@@ -327,9 +507,87 @@ class C14Scraper:
             data.append(row)
         
         df = pd.DataFrame(data)
-        df.to_csv(filename, index=False)
+        # Use pipe separator to avoid issues with commas and semicolons in descriptions
+        df.to_csv(filename, index=False, sep='|')
         logger.info(f"Saved {len(data)} startups to {filename}")
         
+        return filename
+    
+    def save_founders_to_csv(self, filename: str = "c14_founders.csv"):
+        """Save founder data to CSV format for Person entity import"""
+        import pandas as pd
+        
+        data = []
+        for founder in self.all_founders:
+            # Split name into name and surname
+            name_parts = founder['name'].split(' ', 1)
+            first_name = name_parts[0] if name_parts else founder['name']
+            surname = name_parts[1] if len(name_parts) > 1 else ""
+            
+            row = {
+                'name': first_name,
+                'surname': surname,
+                'role_type': founder['role'],
+                'linkedin_url': founder['linkedin'],
+                'twitter_handle': '',
+                'biography': '',
+                'location': '',
+                'birth_year': '',
+                'education': '',
+                'previous_experience': '',
+                'specialization': founder['role'],
+                'reputation_score': ''
+            }
+            data.append(row)
+        
+        df = pd.DataFrame(data)
+        df.to_csv(filename, index=False, sep='|')
+        logger.info(f"Saved {len(data)} founders to {filename}")
+        return filename
+    
+    def save_investors_to_csv(self, filename: str = "c14_investors.csv"):
+        """Save investor data to CSV format for VC_Firm entity import"""
+        import pandas as pd
+        
+        data = []
+        for investor in self.all_investors:
+            row = {
+                'name': investor['name'],
+                'description': '',
+                'website': '',
+                'founded_year': '',
+                'headquarters': '',
+                'type': investor['type'],
+                'investment_focus': '',
+                'stage_focus': '',
+                'geographic_focus': '',
+                'team_size': '',
+                'assets_under_management': '',
+                'portfolio_companies_count': ''
+            }
+            data.append(row)
+        
+        df = pd.DataFrame(data)
+        df.to_csv(filename, index=False, sep='|')
+        logger.info(f"Saved {len(data)} investors to {filename}")
+        return filename
+    
+    def save_founding_relationships_to_csv(self, filename: str = "c14_founding_relationships.csv"):
+        """Save founding relationships to CSV"""
+        import pandas as pd
+        
+        df = pd.DataFrame(self.founding_relationships)
+        df.to_csv(filename, index=False, sep='|')
+        logger.info(f"Saved {len(self.founding_relationships)} founding relationships to {filename}")
+        return filename
+    
+    def save_investment_relationships_to_csv(self, filename: str = "c14_investment_relationships.csv"):
+        """Save investment relationships to CSV"""
+        import pandas as pd
+        
+        df = pd.DataFrame(self.investment_relationships)
+        df.to_csv(filename, index=False, sep='|')
+        logger.info(f"Saved {len(self.investment_relationships)} investment relationships to {filename}")
         return filename
     
     def _extract_year(self, date_str: str) -> Optional[int]:
@@ -403,7 +661,21 @@ if __name__ == "__main__":
     startups = scraper.scrape_all_startups(max_pages=args.max_pages, max_startups=args.max_startups)
     
     if startups:
+        # Save startup data
         scraper.save_to_csv(startups, args.output)
         print(f"Successfully scraped {len(startups)} startups to {args.output}")
+        
+        # Save founder and investor data
+        base_name = args.output.replace('.csv', '')
+        scraper.save_founders_to_csv(f"{base_name}_founders.csv")
+        scraper.save_investors_to_csv(f"{base_name}_investors.csv")
+        scraper.save_founding_relationships_to_csv(f"{base_name}_founding_relationships.csv")
+        scraper.save_investment_relationships_to_csv(f"{base_name}_investment_relationships.csv")
+        
+        print(f"Also saved:")
+        print(f"- {len(scraper.all_founders)} founders to {base_name}_founders.csv")
+        print(f"- {len(scraper.all_investors)} investors to {base_name}_investors.csv")
+        print(f"- {len(scraper.founding_relationships)} founding relationships to {base_name}_founding_relationships.csv")
+        print(f"- {len(scraper.investment_relationships)} investment relationships to {base_name}_investment_relationships.csv")
     else:
         print("No startups scraped")
