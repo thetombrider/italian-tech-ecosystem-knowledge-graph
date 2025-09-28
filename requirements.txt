@@ -1,0 +1,7 @@
+streamlit>=1.37.0
+neo4j>=5.20.0
+pandas>=2.0.0
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+streamlit-agraph>=0.0.45
+networkx>=3.0
