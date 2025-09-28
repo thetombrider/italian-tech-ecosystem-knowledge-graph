@@ -110,7 +110,7 @@ class CSVImporter:
         
         # Required columns by relationship type
         required_columns = {
-            'FOUNDED': ['person_name', 'startup_name', 'founding_date'],
+            'FOUNDED': ['person_name', 'person_surname', 'startup_name', 'founding_date'],
             'WORKS_AT': ['person_name', 'org_name', 'org_type', 'role'],
             'ANGEL_INVESTS_IN': ['person_name', 'startup_name', 'investment_date'],
             'MANAGES': ['firm_name', 'fund_name', 'start_date'],
@@ -149,6 +149,16 @@ class CSVImporter:
         
         try:
             if isinstance(date_str, str):
+                date_str = date_str.strip()
+                
+                # Handle year-only format (e.g., "2017" -> "2017-01-01")
+                if date_str.isdigit() and len(date_str) == 4:
+                    try:
+                        year = int(date_str)
+                        return date(year, 1, 1)
+                    except ValueError:
+                        pass
+                
                 # Try different date formats
                 for fmt in ['%Y-%m-%d', '%d/%m/%Y', '%m/%d/%Y', '%Y-%m-%d %H:%M:%S']:
                     try:
@@ -433,7 +443,7 @@ class CSVImporter:
                     'is_current': self.parse_boolean(row.get('is_current', True)),
                     'exit_date': self.parse_date(row.get('exit_date'))
                 }
-                return self.repo.create_founded_relationship(row['person_name'], row['startup_name'], data)
+                return self.repo.create_founded_relationship(row['person_name'], row['person_surname'], row['startup_name'], data)
             
             elif relationship_type == 'WORKS_AT':
                 data = {

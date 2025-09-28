@@ -1,0 +1,512 @@
+name|surname|role_type|linkedin_url|twitter_handle|biography|location|birth_year|education|previous_experience|specialization|reputation_score
+Gianluca|Epifani|CTO|https://www.linkedin.com/in/gianluca-epifani-6880114/|||||||CTO|
+Marco|Montemagno|Founder|https://www.linkedin.com/in/marcomontemagno/|||||||Founder|
+Marco|Calabro|COO & Co-Founder|https://www.linkedin.com/in/marcocalabro/|||||||COO & Co-Founder|
+Lorenzo|Allamprese|COO|https://www.linkedin.com/in/lorenzo-allamprese-829bb979/|||||||COO|
+Mattia|Peracchi|CTO|https://www.linkedin.com/in/mattiaperacchi/|||||||CTO|
+Daniele|Gamba|CEO|https://www.linkedin.com/in/daniele-gamba/|||||||CEO|
+Emanuele|Gusso|Co-Founder|https://www.linkedin.com/in/emanuele-gusso-9a42701b6/|||||||Co-Founder|
+Fabio|Frattin|Co-Founder|https://www.linkedin.com/in/fabio-frattin-973b49144/|||||||Co-Founder|
+Mauro|Musarra|Co-Founder & CEO|https://www.linkedin.com/in/mauro-musarra/|||||||Co-Founder & CEO|
+Giovanni|Cioffi|Co-Founder|https://www.linkedin.com/in/giovanni-cioffi/|||||||Co-Founder|
+Antonino|Geraci|Co-Founder|https://www.linkedin.com/in/antonino-geraci/|||||||Co-Founder|
+Matteo|Tarantino|Co-Founder & CTO|https://www.linkedin.com/in/matteo-tarantino-b896521b6/|||||||Co-Founder & CTO|
+Daniele|Di Viccaro|Co-Founder & CPO|https://www.linkedin.com/in/danielediviccaro/|||||||Co-Founder & CPO|
+Antonio|Restaino|Head of Sales|https://www.linkedin.com/in/antonio-restaino/|||||||Head of Sales|
+Lorenzo|Balzani|CTO|https://www.linkedin.com/in/lorenzobalzani/|||||||CTO|
+Gianluca|Sordano|Co-Founder & CEO|https://www.linkedin.com/in/gianlucasordano/|||||||Co-Founder & CEO|
+Sonia|Paonessa|Founder & CEO|https://www.linkedin.com/in/sonia-paonessa/|||||||Founder & CEO|
+Marco|Da Rin Zanco|Co-Founder & CEO|https://www.linkedin.com/in/marcodarin/|||||||Co-Founder & CEO|
+Michele|Da Rold|Co-Founder|https://www.linkedin.com/in/donmicheledarold/|||||||Co-Founder|
+Andrea|Riva|Co-Founder & CEO|https://www.linkedin.com/in/andrea-riva-86456883/|||||||Co-Founder & CEO|
+Michele|Ferri|Co-Founder & CSO|https://www.linkedin.com/in/michele-ferri-2253aa20b/|||||||Co-Founder & CSO|
+Sebastiano|Bellani|Co-Founder & CTO|https://www.linkedin.com/in/sebastiano-bellani-591373271/|||||||Co-Founder & CTO|
+Claudio|Cama|Founder|https://www.linkedin.com/in/claudio-cama/|||||||Founder|
+Ilyich|Vismara|CTO|https://www.linkedin.com/in/ilyich-vismara/|||||||CTO|
+Dorian|Mercatante|CEO|https://www.linkedin.com/in/dorian-mercatante/|||||||CEO|
+Manolo|Battista|COO|https://www.linkedin.com/in/manolo-battista/|||||||COO|
+Silvio|Bonomi|Founder|https://www.linkedin.com/in/silviobonomi/|||||||Founder|
+Vincenzo|Schifano|Co-Founder & COO|https://www.linkedin.com/in/schifanovincenzo/|||||||Co-Founder & COO|
+Mattia|Salvi|Co-Founder & CEO|https://www.linkedin.com/in/mattia-salvi/|||||||Co-Founder & CEO|
+Leonardo|Persico|Co-Founder & Tech Director|https://www.linkedin.com/in/leonardo-persico/|||||||Co-Founder & Tech Director|
+Francesco|Froni|Co-Founder|https://www.linkedin.com/in/francesco-froni-3270641b7/|||||||Co-Founder|
+Giacomo|Rossi|Co-Founder|https://www.linkedin.com/in/giacomorossi-a142b8236/|||||||Co-Founder|
+Alfredo|Ceci|Co-Founder|https://www.linkedin.com/in/alfredo-ceci-2069491bb/|||||||Co-Founder|
+Ferruccio|Tasca|Fo-Founder & CEO|https://www.linkedin.com/in/filiberto-ferruccio-tasca/|||||||Fo-Founder & CEO|
+Jacopo|Pertile|Co-Founder|https://www.linkedin.com/in/jacopopertile/|||||||Co-Founder|
+Carlo|Pasqualetto|Co-Founder & CEO|https://www.linkedin.com/in/carlo-pasqualetto/|||||||Co-Founder & CEO|
+Roberto|Nicastro|Co-Founder|https://www.linkedin.com/in/rnicastro8848/|||||||Co-Founder|
+Federico|Sforza|Co-Founder & CEO|https://www.linkedin.com/in/federico-sforza-686b5/|||||||Co-Founder & CEO|
+Massimiliano|Carraro|Co-Founder|https://www.linkedin.com/in/massimiliano-carraro/|||||||Co-Founder|
+Stefania|Malfatti|Co-Founder & CEO|https://www.linkedin.com/in/malfattistefania/|||||||Co-Founder & CEO|
+Alessandra|Ureche|Founder|https://www.linkedin.com/in/alessandra-ureche/|||||||Founder|
+Andrea|Maranelli|Co-Founder & CEO|https://www.linkedin.com/in/andrea-maranelli-74885911b/|||||||Co-Founder & CEO|
+Fabio|Wibmer|Co-Founder|https://www.linkedin.com/in/wibmerfabio/|||||||Co-Founder|
+Nikolai|Holder|Co-Founder|https://www.linkedin.com/in/nikolai-holder-64b9531b1/|||||||Co-Founder|
+Giorgio|Ennas|CEO|https://www.linkedin.com/in/giorgio-ennas/|||||||CEO|
+Giovanni|Antonio Zappatore|Co-Founder & CEO|https://www.linkedin.com/in/giovanni-zappatore/|||||||Co-Founder & CEO|
+Federico|Gaetani|Co-Founder & CTO|https://www.linkedin.com/in/federico-gaetani/|||||||Co-Founder & CTO|
+Matteo|Aventaggiato|Co-Founder & COO|https://www.linkedin.com/in/matteo-aventaggiato/|||||||Co-Founder & COO|
+Emanuele|Cipriani|Co-Founder|https://www.linkedin.com/in/emanuele-cipriani-bb675a102/|||||||Co-Founder|
+Giovanni|Scansani|Co-Founder|https://www.linkedin.com/in/giovanni-scansani-65478b122/|||||||Co-Founder|
+Fabrizio|Pinci|Co-Founder|https://www.linkedin.com/in/fabriziopinci/|||||||Co-Founder|
+Giovanni|Pizza|Co-Founder & CEO|https://www.linkedin.com/in/giovannipizza/|||||||Co-Founder & CEO|
+Marta|Basso|Co-Founder & CEO|https://www.linkedin.com/in/martabassof/|||||||Co-Founder & CEO|
+Emanuele|Bartolesi|Co-Founder & CTO|https://www.linkedin.com/in/bartolesiemanuele/|||||||Co-Founder & CTO|
+Luca|Cozzarini|Co-Founder|https://www.linkedin.com/in/luca-cozzarini/|||||||Co-Founder|
+Stefano|Cortese|Co-Founder & CTO|https://www.linkedin.com/in/cortese-stefano/|||||||Co-Founder & CTO|
+Stefano|Manzoni|Co-Founder & COO|https://www.linkedin.com/in/stefano-manzoni/|||||||Co-Founder & COO|
+Giovanni|Ciferri|Co-Founder & CEO|https://www.linkedin.com/in/giovanniciferri/|||||||Co-Founder & CEO|
+Stefano|Tazio|Co-Founder|https://www.linkedin.com/in/stefanotazio/|||||||Co-Founder|
+Riccardo|Pirlea|Co-Founder|https://www.linkedin.com/in/riccardopirlea/|||||||Co-Founder|
+Cristian|Nozzi|Founder & CTO|https://www.linkedin.com/in/cristian-n-a70272150/|||||||Founder & CTO|
+Claudio|Cardinale|Co-Founder & CTO|https://www.linkedin.com/in/claudio-cardinale/|||||||Co-Founder & CTO|
+Alessio|Mazzalupi|Co-Founder|https://www.linkedin.com/in/alessio-mazzalupi/|||||||Co-Founder|
+Riccardo|Valobra|Co-Founder|https://www.linkedin.com/in/riccardo-valobra-590060193/|||||||Co-Founder|
+Fabrizio|Maiocco|Co-Founder|https://www.linkedin.com/in/fabrizio-maiocco-8b09571b/|||||||Co-Founder|
+Juri|Cinti|Co-Founder|https://www.linkedin.com/in/juricinti/|||||||Co-Founder|
+Enrico|Gramaglia|Co-Founder|https://www.linkedin.com/in/enrico-gramaglia-910757264/|||||||Co-Founder|
+Paolo|De Giglio|CEO|https://www.linkedin.com/in/paolo-de-giglio/|||||||CEO|
+Marco|Agnoletto|Co-Founder|https://www.linkedin.com/in/marco-agnoletto-1b0a15b2/|||||||Co-Founder|
+Anna|Vinci|Co-Founder|https://www.linkedin.com/in/annavinci/|||||||Co-Founder|
+Alessio|Pracchia|CTO|https://www.linkedin.com/in/alessio-pracchia/|||||||CTO|
+Simona|Calugi|Co-Founder|https://www.linkedin.com/in/simona-calugi-b243b4166/|||||||Co-Founder|
+Andreea|Popa|Account Manager|https://www.linkedin.com/in/andreea-popa-07705522a/|||||||Account Manager|
+Nadir|Papini|Co-Founder|https://www.linkedin.com/in/papininadir/|||||||Co-Founder|
+Francesco|Leinardi|Software Engineer|https://www.linkedin.com/in/francescoleinardi/|||||||Software Engineer|
+Iris|Calugi|Social Media Marketing Manager|https://www.linkedin.com/in/iris-calugi-62110325b/|||||||Social Media Marketing Manager|
+Salvatore|Zola|Co-Founder & CPO|https://www.linkedin.com/in/salvatore-zola/|||||||Co-Founder & CPO|
+Giovanni|Camisasca|Co-Founder & CEO|https://www.linkedin.com/in/gcamisasca/|||||||Co-Founder & CEO|
+Matteo|Costantini|Co-Founder & CIO|https://www.linkedin.com/in/matteo-costantini-82b204135/|||||||Co-Founder & CIO|
+Edoardo|Gava|Co-Founder|https://www.linkedin.com/in/edoardogava/|||||||Co-Founder|
+Edoardo|Arbizzi|Co-Founder|https://www.linkedin.com/in/edoardoarbizzi/|||||||Co-Founder|
+Gabriele|Lantini|CEO|https://www.linkedin.com/in/gabriele-lantini/|||||||CEO|
+Matteo|Ducci|Co-Founder|https://www.linkedin.com/in/matteoducci/|||||||Co-Founder|
+Marco|Porcaro|Founder|https://www.linkedin.com/in/marcoporcaro/|||||||Founder|
+Maximiliano|Volpi|CFO|https://www.linkedin.com/in/maximiliano-volpi-127b131/|||||||CFO|
+Andrea|Colombo|CEO|https://www.linkedin.com/in/acolombo1/|||||||CEO|
+Matteo|Roversi|Co-Founder|https://www.linkedin.com/in/matteoroversi/|||||||Co-Founder|
+Francesco|Marino|Co-Founder & CEO|https://www.linkedin.com/in/francescomarino3a358676/|||||||Co-Founder & CEO|
+Alessandro|La Rosa|Founder & CEO|https://www.linkedin.com/in/larosanet/|||||||Founder & CEO|
+Lorenzo|Tiberi|Co-Founder|https://www.linkedin.com/in/tiberilor/|||||||Co-Founder|
+Alex|Roggero|Co-Founder & CMO|https://www.linkedin.com/in/alexroggero/|||||||Co-Founder & CMO|
+Marco|Rosmarini|Co-Founder & CEO|https://www.linkedin.com/in/marco-rosmarini/|||||||Co-Founder & CEO|
+Marco|Maddiona|Co-Founder & CTO|https://www.linkedin.com/in/marco-maddiona-11001497/|||||||Co-Founder & CTO|
+Domenico|Campeglia|CEO|https://www.linkedin.com/in/domenicocampeglia/|||||||CEO|
+Alessandro|Risaro|Co-Founder|https://www.linkedin.com/in/alessandrorisaro/|||||||Co-Founder|
+Pierpaolo|D'Odorico|Co-Founder|https://www.linkedin.com/in/pierpaolododorico/|||||||Co-Founder|
+Lorenzo|Ferretti|Founder|https://www.linkedin.com/in/ferrettil/|||||||Founder|
+Giuseppe|Calì|Founder|https://www.linkedin.com/in/giuseppe-cal%C3%AC-delfi/|||||||Founder|
+Mirko|Puliafito|CEO|https://www.linkedin.com/in/mirkopuliafito/|||||||CEO|
+Giovanni|Menozzi|CEO|https://www.linkedin.com/in/giovanni-menozzi-2597214a/|||||||CEO|
+Virginia|Padovani|Co-Founder|https://www.linkedin.com/in/vpadovani/|||||||Co-Founder|
+Gaia|Roncalli|Founder & COO|https://www.linkedin.com/in/gaia-roncalli/|||||||Founder & COO|
+Imane|Marouf|Founder|https://www.linkedin.com/in/imane-marouf/|||||||Founder|
+Benedetta|Margrethe Cattani|Founder & CEO / CTO|https://www.linkedin.com/in/benedettam-cattani/|||||||Founder & CEO / CTO|
+Eduardo|Galletti|Co-Founder|https://www.linkedin.com/in/eduardo-galletti-98962a179/|||||||Co-Founder|
+Andrea|Trotta|Co-Founder|https://www.linkedin.com/in/andreatro/|||||||Co-Founder|
+Luca|Gilardoni|President|https://www.linkedin.com/in/lucagilardoni/|||||||President|
+Irene|Pugliatti|CEO|https://www.linkedin.com/in/irene-pugliatti/|||||||CEO|
+Saverio|Veltri|CTO|https://www.linkedin.com/in/saveveltri/|||||||CTO|
+Stefano|Casagrande|Co-Founder & CEO|https://www.linkedin.com/in/s-casagrande/|||||||Co-Founder & CEO|
+Andrea|Orani|Co-Founder & CEO|https://www.linkedin.com/in/andreaorani/|||||||Co-Founder & CEO|
+Lorenza|Silvestri|Co-Founder & CMO|https://www.linkedin.com/in/lorenza-silvestri-849622176/|||||||Co-Founder & CMO|
+Annamaria|Barbaro|Co-Founder & CEO|https://www.linkedin.com/in/annamaria-barbaro-03679b106/|||||||Co-Founder & CEO|
+Emidio|Granito|Co-Founder|https://www.linkedin.com/in/e-granito/|||||||Co-Founder|
+Roberto|Carnicelli|Co-Founder & CEO|https://www.linkedin.com/in/roberto-carnicelli/|||||||Co-Founder & CEO|
+Giovanni|Luddeni|Co-Founder & CTO|https://www.linkedin.com/in/giovanni-luddeni/|||||||Co-Founder & CTO|
+Chiara|Mugnai|Co-Founder|https://www.linkedin.com/in/chiara-cs-mugnai/|||||||Co-Founder|
+Alessio|Polo|CSO|https://www.linkedin.com/in/alessio-polo/|||||||CSO|
+Matteo|Fabbrini|CEO|https://www.linkedin.com/in/matteofabbrini/|||||||CEO|
+Francesco|Poloniato|Creative Director|https://www.linkedin.com/in/francesco-poloniato-57079566/|||||||Creative Director|
+Chiara|Gava|CPO|https://www.linkedin.com/in/chiaragava/|||||||CPO|
+Zahir|Fetovski|CTO|https://www.linkedin.com/in/zahirfetovski/|||||||CTO|
+Giacomo|Gallazzi|Co-Founder|https://www.linkedin.com/in/giacomo-gallazzi-2572bb1b6/|||||||Co-Founder|
+Matteo|Longoni|Co-Founder & CMO|https://www.linkedin.com/in/matteo-longoni-0574b1237/|||||||Co-Founder & CMO|
+Alessandro|Caccia|Co-Founder & COO|https://www.linkedin.com/in/alessandro-caccia-7097731a7/|||||||Co-Founder & COO|
+Lorenzo|Perotta|Co-Founder & CEO|https://www.linkedin.com/in/lorenzo-perotta/|||||||Co-Founder & CEO|
+Enrico|Mattiazzi|CEO|https://www.linkedin.com/in/mattiazzi/|||||||CEO|
+Simone|Gabbana|Co-Founder|https://www.linkedin.com/in/simone-gabbana/|||||||Co-Founder|
+Francesca|Bosio|Co-Founder|https://www.linkedin.com/in/francesca-bosio/|||||||Co-Founder|
+Vittorio|Sileo|Co-Founder & CEO|https://www.linkedin.com/in/vittoriosileo/|||||||Co-Founder & CEO|
+Allegra|Violante|Co-Founder & CEO|https://www.linkedin.com/in/allegraviolante/|||||||Co-Founder & CEO|
+Francesca|Accordi|Co-Founder & COO|https://www.linkedin.com/in/francesca-accordi-088310208/|||||||Co-Founder & COO|
+Matteo|Mariani|CEO|https://www.linkedin.com/in/matteomariani123/|||||||CEO|
+Fabio|Cermelli|Co-Founder & CTO|https://www.linkedin.com/in/fabiocermelli/|||||||Co-Founder & CTO|
+Antonio|Tavera|Co-Founder & CEO|https://www.linkedin.com/in/taveraantonio/|||||||Co-Founder & CEO|
+Massimo|Sabatini|Co-Founder & CEO|https://www.linkedin.com/in/massimo-sabatini/|||||||Co-Founder & CEO|
+Giuseppe|D'Alessandro|Co-Founder & CMO|https://www.linkedin.com/in/giuseppe-d-alessandro/|||||||Co-Founder & CMO|
+Michele|Mezzanzanica|co-founder / co-CEO|https://www.linkedin.com/in/michelemezzanzanica/|||||||co-founder / co-CEO|
+Manuel|Siclari|co-founder / co-CEO|https://www.linkedin.com/in/manuel-siclari/|||||||co-founder / co-CEO|
+Lapo|Nidiaci|Co-Founder & CEO|https://www.linkedin.com/in/lapo-nidiaci-b828aa171/|||||||Co-Founder & CEO|
+Leonardo|Capotosto|Co-Founder & CMO|https://www.linkedin.com/in/leonardo-capotosto-470a7a151/|||||||Co-Founder & CMO|
+Remko|Wiesman|Co-CEO|https://www.linkedin.com/in/remkowiesman/|||||||Co-CEO|
+Lorenzo|Pinto|Founder & CTO|https://www.linkedin.com/in/lorenzopinto/|||||||Founder & CTO|
+Francesco|Salvatore|Founder & CPO|https://www.linkedin.com/in/francesco-salvatore-518b14203/|||||||Founder & CPO|
+Andrea|Chirolli|Founder & Co-Ceo|https://www.linkedin.com/in/andrea-chirolli/|||||||Founder & Co-Ceo|
+Andrea|Cappelletti|CEO & Founder|https://www.linkedin.com/in/ilcappelletti/|||||||CEO & Founder|
+Angelo|Lippolis|CTO|https://www.linkedin.com/in/angelo-lippolis/|||||||CTO|
+Simone|Solidoro|CMO|https://www.linkedin.com/in/simone-solidoro-915a61159/|||||||CMO|
+Egidio|De Salve|CAIO|https://www.linkedin.com/in/edesalve/|||||||CAIO|
+Nicolo|Santin|CEO & Co-founder Gamindo|https://www.linkedin.com/in/nicolosantin/|||||||CEO & Co-founder Gamindo|
+Mattia|Chiaruttini|Co-Founder|https://www.linkedin.com/in/mattiachiaruttini/|||||||Co-Founder|
+Davide|Catrambone|Co-Founder|https://www.linkedin.com/in/davide-catrambone/|||||||Co-Founder|
+Riccardo|Grassi|Co-Founder|https://www.linkedin.com/in/riccardo-grassi-79714a200/|||||||Co-Founder|
+Pierluigi|Bianchi|Co-Founder|https://www.linkedin.com/in/pierluigi-bianchi-911264123/|||||||Co-Founder|
+Samir|Khadem|Co-Founder|https://www.linkedin.com/in/samirkhadem/|||||||Co-Founder|
+Simonluca|Piazza|CEO|https://www.linkedin.com/in/simonluca-piazza/|||||||CEO|
+Matteo|Cera|CEO|https://www.linkedin.com/in/matteocera/|||||||CEO|
+Niccolo|Valerio|Co-Founder|https://www.linkedin.com/in/niccolovalerio/|||||||Co-Founder|
+Giovanni|Del Gallo|Co-Founder|https://www.linkedin.com/in/giovannidelgallo/|||||||Co-Founder|
+Filippo|Ronconi|Co-Founder|https://www.linkedin.com/in/filippo-ronconi-2b483a162/|||||||Co-Founder|
+Marco|Morri|Co-Founder|https://www.linkedin.com/in/marco-morri/|||||||Co-Founder|
+Rongou|Zhou|Co-Founder & CIO|https://www.linkedin.com/in/rongou-zhou/|||||||Co-Founder & CIO|
+Emidio|Pesce|Co-Founder & CEO|https://www.linkedin.com/in/emidio-pesce/|||||||Co-Founder & CEO|
+Greta|Beccarello|CMO & Co-Founder|https://www.linkedin.com/in/greta-beccarello/|||||||CMO & Co-Founder|
+Benedetta|Tornesi|CEO & Co-Founder|https://www.linkedin.com/in/benedetta-tornesi/|||||||CEO & Co-Founder|
+Guglielmo| Tornesi|CTO & Co-Founder|https://www.linkedin.com/in/guglielmotornesi/|||||||CTO & Co-Founder|
+Miriam|Sanguineti|Head of Design & Co-Founder|https://www.linkedin.com/in/miriamsanguineti/|||||||Head of Design & Co-Founder|
+Francesco| Berardinucci|Co-fondatore|https://www.linkedin.com/in/francesco-berardinucci-585a97119|||||||Co-fondatore|
+Flaminia|Gaia Di Lorenzo|Co-Founder|https://www.linkedin.com/in/flaminia-gaia-di-lorenzo-b59933180/|||||||Co-Founder|
+Antonio|Buongiorno|Co-Founder|https://www.linkedin.com/in/antonio-buongiorno-419b8a133/|||||||Co-Founder|
+Franz|Uhl|Co-Founder|https://www.linkedin.com/in/franzuhl/|||||||Co-Founder|
+Lorenzo|Mannari|Co-Founder|https://www.linkedin.com/in/lorenzo-mannari-556679104/|||||||Co-Founder|
+Emanuele|Sanfelici|Co-Founder|https://www.linkedin.com/in/emanuelesanfelici/|||||||Co-Founder|
+Riccardo|Lapi|Co-Founder|https://www.linkedin.com/in/riccardo-lapi-6183a724a/|||||||Co-Founder|
+Gea|Venneri|Co-Founder|https://www.linkedin.com/in/gea-venneri/|||||||Co-Founder|
+Alice|Cancellario|Co-Founder|https://www.linkedin.com/in/alice-cancellario-b88105a6/|||||||Co-Founder|
+Giada|Cancellario|Co-Founder & CEO|https://www.linkedin.com/in/giada-cancellario-3b323a89/|||||||Co-Founder & CEO|
+Raffaele|Messina|Co-Founder|https://www.linkedin.com/in/raffaele-messina-19544359/|||||||Co-Founder|
+Marco|Santorelli|Co-Founder|https://www.linkedin.com/in/marco-santorelli-970510333/|||||||Co-Founder|
+Stefano|Quinzii|Co-Founder|https://www.linkedin.com/in/stefanoquinzii001/|||||||Co-Founder|
+Luca|Visconti|CEO|https://www.linkedin.com/in/lucav21/|||||||CEO|
+Nicola|Mei|Co-Founder|https://www.linkedin.com/in/nicola-mei/|||||||Co-Founder|
+Simone|Martinelli|Managing Director|https://www.linkedin.com/in/simone-martinelli-%F0%9F%97%A3%EF%B8%8F-400982a7/|||||||Managing Director|
+Giacomo|Barone|CEO & Co-Founder|https://www.linkedin.com/in/giacomobarone/|||||||CEO & Co-Founder|
+Vincenzo|Marino|CCO & Co-Founder|https://www.linkedin.com/in/marinovinz/|||||||CCO & Co-Founder|
+Enrico|La Sala|CTO & Co-Founder|https://www.linkedin.com/in/enricolasala/|||||||CTO & Co-Founder|
+Gianluca|Boleto|Co-Founder|https://www.linkedin.com/in/gianluca-boleto/|||||||Co-Founder|
+Lorenzo|Maffia|Co-Founder & CTO|https://www.linkedin.com/in/lorenzomaffia/|||||||Co-Founder & CTO|
+Gianluca|Sommariva|Co-Founder & CEO|https://www.linkedin.com/in/gianlucasommariva/|||||||Co-Founder & CEO|
+Matteo|Sandrini|Founder|https://www.linkedin.com/in/matteo-sandrini-a256a911b/|||||||Founder|
+Francesco|Falamischia|Co-Founder & CEO|https://www.linkedin.com/in/francesco-falamischia/|||||||Co-Founder & CEO|
+Gabriel|Adams|Co-Founder|https://www.linkedin.com/in/gabriel-adams-gbta/|||||||Co-Founder|
+Lorenzo|Ghettini|Co-Founder|https://www.linkedin.com/in/lorenzo-ghettini/|||||||Co-Founder|
+Giuliano|Golfieri|Co-Founder & COO|https://www.linkedin.com/in/giuliano-golfieri/|||||||Co-Founder & COO|
+Lorenzo|Rizzello|Co-Founder & CEO|https://www.linkedin.com/in/lorenzo-rizzello/|||||||Co-Founder & CEO|
+Marco|Ramilli|Founder|https://www.linkedin.com/in/marcoramilli/|||||||Founder|
+Simone|Alberto|Co-Founder & CTO|https://www.linkedin.com/in/simone-alberto/|||||||Co-Founder & CTO|
+Sebastiano|Andreis|Co-Founder & CEO|https://www.linkedin.com/in/sebastiano-andreis-%F0%9F%9A%80-214688189/|||||||Co-Founder & CEO|
+Duccio|Pasquinelli|Co-Founder & Head of Growth|https://www.linkedin.com/in/ducciopasquinelli/|||||||Co-Founder & Head of Growth|
+Nicola|Travella|Co-Founder & CEO|https://www.linkedin.com/in/nicola-travella/|||||||Co-Founder & CEO|
+Marco|Falcone|Co-Founder & CTO|https://www.linkedin.com/in/marcoflcn/|||||||Co-Founder & CTO|
+Andrea|Tangredi|Co-Founder & Chief Product Officer|https://www.linkedin.com/in/andrea-tangredi-406513184/|||||||Co-Founder & Chief Product Officer|
+Enrico|Bertino|Co-Founder & Chief Ai Officer|https://www.linkedin.com/in/enricobertino/|||||||Co-Founder & Chief Ai Officer|
+Gianluca|Maruzzella|Co-Founder & CEO|https://www.linkedin.com/in/maruzzellagianluca/|||||||Co-Founder & CEO|
+Denis|Peroni|Chief Product Development Officer|https://www.linkedin.com/in/denis-peroni-536948162/|||||||Chief Product Development Officer|
+Matteo|Papaluca|Founder|https://www.linkedin.com/in/matteopapaluca/|||||||Founder|
+Sebastiano|Sicignano|CEO|https://www.linkedin.com/in/sebastiano-sicignano-a5b29b80/|||||||CEO|
+Andrea|Guzzo|CTO & Founder|https://www.linkedin.com/in/andreaguzzo/|||||||CTO & Founder|
+Stefano|Moret|Co-Founder|https://www.linkedin.com/in/stefanomoret/|||||||Co-Founder|
+Filippo|Lazzarin|Co-Founder|https://www.linkedin.com/in/filippolazzarin/|||||||Co-Founder|
+Elia|Turatti|Co-Founder|https://www.linkedin.com/in/elia-turatti/|||||||Co-Founder|
+Marco|Ogliengo|Founder|https://www.linkedin.com/in/mogliengo/|||||||Founder|
+Francesco|Scalambrino|Founder|https://www.linkedin.com/in/francescoscalambrino/|||||||Founder|
+Martina|Mattone|Co-Founder & CPO|https://www.linkedin.com/in/martina-mattone/|||||||Co-Founder & CPO|
+Gabriele|Giugliano|Co-Founder & CEO|https://www.linkedin.com/in/gabriele-giugliano-7466a867/|||||||Co-Founder & CEO|
+Nicolo|Bardi|Co-Founder & CMO|https://www.linkedin.com/in/nicol%C3%B2-bardi/|||||||Co-Founder & CMO|
+Danilo|Mecozzi|CEO|https://www.linkedin.com/in/danilomecozzi/|||||||CEO|
+Nicola|Carnevali|Co-Founder & COO|https://www.linkedin.com/in/nicola-carnevali-44b02512b/|||||||Co-Founder & COO|
+Nicola|Faitelli|Co-Founder & CEO|https://www.linkedin.com/in/nicola-faitelli-bb3554235/|||||||Co-Founder & CEO|
+Alberta|Trombetta|CEO|https://www.linkedin.com/in/alberta-trombetta/|||||||CEO|
+Marco|Alba|Co-Founder & CFO|https://www.linkedin.com/in/marco-alba-kampaay/|||||||Co-Founder & CFO|
+Enrico|Berto|Co-Founder & CPO|https://www.linkedin.com/in/enrico-berto-kampaay/|||||||Co-Founder & CPO|
+Daniele|Arduini|Co-Founder & CEO|https://www.linkedin.com/in/daniele-arduini-6b399384/|||||||Co-Founder & CEO|
+Giovanni|Davalli|Co-Founder|https://www.linkedin.com/in/giovanni-davalli-6b792b182/|||||||Co-Founder|
+Gabriele|Feudo|Co-Founder & CEO|https://www.linkedin.com/in/gabrielefeudo/|||||||Co-Founder & CEO|
+Federico|Pedron|Co-Founder & CEO|https://www.linkedin.com/in/federicopedron/|||||||Co-Founder & CEO|
+Luca|Tamborino Frisari|Co-Founder & COO|https://www.linkedin.com/in/luca-tamborino-frisari/|||||||Co-Founder & COO|
+Luigi|Adornetto|Co-Founder & CTO|https://www.linkedin.com/in/luigi-adornetto/|||||||Co-Founder & CTO|
+Federico|Quarato|CEO|https://www.linkedin.com/in/federicoquarato/|||||||CEO|
+Giovanni|Feltrin|Co-Founder|https://www.linkedin.com/in/feltrin-giovanni/|||||||Co-Founder|
+Alessandro|Paladin|Co-Founder|https://www.linkedin.com/in/alepala/|||||||Co-Founder|
+Luca|Mastella|Founder & CEO|https://www.linkedin.com/in/lucamastella/|||||||Founder & CEO|
+Dario|Del Gaizo|Co-Founder|https://www.linkedin.com/in/dariodelgaizo/|||||||Co-Founder|
+Tommaso|Lucarelli|Co-Founder|https://www.linkedin.com/in/tommaso-lucarelli-/|||||||Co-Founder|
+Emanuele|Baldelli|Co-Founder|https://www.linkedin.com/in/emabaldelli/|||||||Co-Founder|
+Filippo|Caliò|Co-Founder|https://www.linkedin.com/in/filippo-calio/|||||||Co-Founder|
+CDP|Venture Capital||https://www.linkedin.com/company/cdp-venture-capital-sgr/||||||||
+Martina|Domenicali|Co-Founder & CSO|https://www.linkedin.com/in/martinadomenicali/|||||||Co-Founder & CSO|
+Andrea|Lonza|Co-Founder & CTO|https://www.linkedin.com/in/andrea-lonza/|||||||Co-Founder & CTO|
+Paolo|Fois|Co-Founder & CEO|https://www.linkedin.com/in/paolo-fois-lexroom/|||||||Co-Founder & CEO|
+Riccardo|Tripodi|Co-Founder & CEO|https://www.linkedin.com/in/riccardo-tripodi/|||||||Co-Founder & CEO|
+Francesco|Meli|Co-Founder & COO|https://www.linkedin.com/in/francesco-meli-96a294105/|||||||Co-Founder & COO|
+Cristian|Bocciarelli|Co-Founder & CTO|https://www.linkedin.com/in/cristian-bocciarelli-1718361b5/|||||||Co-Founder & CTO|
+Alessia|Poggi|Co-Founder & CLO|https://www.linkedin.com/in/alessia-poggi-931662b5/|||||||Co-Founder & CLO|
+Luca|Erculiani|R&D Chief|https://www.linkedin.com/in/luca-erculiani-770818b8/|||||||R&D Chief|
+Alessia|Lucentini|Co-Founder & CEO|https://www.linkedin.com/in/alessia-lucentini-152023222/|||||||Co-Founder & CEO|
+Alina|Docan|Co-Founder|https://www.linkedin.com/in/alina-docan-0629691b6/|||||||Co-Founder|
+Matteo|Berti|Co-Founder|https://www.linkedin.com/in/matteoberti97/|||||||Co-Founder|
+Valerio|Lomanno|Co-Founder|https://www.linkedin.com/in/valerio-lomanno/|||||||Co-Founder|
+Gianmarco|Padovano|Founder|https://www.linkedin.com/in/pdv-gmr/|||||||Founder|
+Nicola|Simoncelli|Founder|https://www.linkedin.com/in/nicola-simoncelli-9570a427/|||||||Founder|
+Nicola|Alessi|Co-Founder|https://www.linkedin.com/in/nicolalessi/|||||||Co-Founder|
+Lorenzo|Pediconi|Co-Founder|https://www.linkedin.com/in/pediconilorenzo/|||||||Co-Founder|
+Matteo|Melina|CEO & Founder|https://www.linkedin.com/in/matteomelina/|||||||CEO & Founder|
+Daniele|Calvo Pollino|Founder|https://www.linkedin.com/in/daniele-calvo-pollino-1a97238b/|||||||Founder|
+Antonio|Cambise|Co-Founder & CPO|https://www.linkedin.com/in/antonio-cambise-954a75154/|||||||Co-Founder & CPO|
+Luca|Rillosi|Co-Founder|https://www.linkedin.com/in/lucarillosi/|||||||Co-Founder|
+Emanuele|Rota|Co-Founder|https://www.linkedin.com/in/emanuelerota8/|||||||Co-Founder|
+Michele|Pavone|CCO & Co-founder|https://www.linkedin.com/in/michelepavone/|||||||CCO & Co-founder|
+Marta|Della Valle|CEO & Co-founder|https://www.linkedin.com/in/marta-della-valle/|||||||CEO & Co-founder|
+Leopoldo|Angelini|Co-Founder & CEO|https://www.linkedin.com/in/leopoldo-angelini/|||||||Co-Founder & CEO|
+Leonardo|Biagi|Co-Founder & CTO|https://www.linkedin.com/in/leonardobiagi/|||||||Co-Founder & CTO|
+Giacomo|Salvanelli|CEO|https://www.linkedin.com/in/giacomosalvanelli/|||||||CEO|
+Samuel|Piatanesi|CTO|https://www.linkedin.com/in/samuel-piatanesi/|||||||CTO|
+Noemi|Pirazzoli|CEO|https://www.linkedin.com/in/noemipirazzoli/|||||||CEO|
+Gionatan|Cernusco|CTO & Co-Founder|https://www.linkedin.com/in/gionatan-cernusco/|||||||CTO & Co-Founder|
+Veronica|Nigro|CEO & Co-Founder|https://www.linkedin.com/in/veronica-nigro/|||||||CEO & Co-Founder|
+Francesco|Finazzi|CEO|https://www.linkedin.com/in/francesco-finazzi-90a7251ab/|||||||CEO|
+Daniele|Brambilla|Co-Founder & COO|https://www.linkedin.com/in/daniele-brambilla-8a501279/|||||||Co-Founder & COO|
+Rodolfo|Paolo Graziani|Co-Founder|https://www.linkedin.com/in/rodolfo-paolo-graziani/|||||||Co-Founder|
+Riccardo|Suardi|Founder & CEO|https://www.linkedin.com/in/riccardosuardi/|||||||Founder & CEO|
+Nicholas|Croci|Co-Founder|https://www.linkedin.com/in/nicholas-croci/|||||||Co-Founder|
+Luca|De Ciechi|Co-Founder|https://www.linkedin.com/in/luca-de-ciechi/|||||||Co-Founder|
+Federico|Visintini|Co-Founder & CTO|https://www.linkedin.com/in/federicovisintini/|||||||Co-Founder & CTO|
+Francesco|Tansella|Co-Founder & CEO|https://www.linkedin.com/in/francesco-tansella/|||||||Co-Founder & CEO|
+Paolo|Ceffa|Co-Founder|https://www.linkedin.com/in/paolo-ceffa-15b524235/|||||||Co-Founder|
+Maurizio|Piredda|Co-Founder & CFO|https://www.linkedin.com/in/mpiredda/|||||||Co-Founder & CFO|
+Giuseppe|Vaccaro|Co-Founder|https://www.linkedin.com/in/giuseppevaccaro91/|||||||Co-Founder|
+Gabriele|Gangemi|Co-Founder & CEO|https://www.linkedin.com/in/gabriele-gangemi-031a74198/|||||||Co-Founder & CEO|
+Luigi|Pederzani|Co-Founder|https://www.linkedin.com/in/luigipederzani/|||||||Co-Founder|
+Giacomo|Gentili|Co-Founder & CPO|https://www.linkedin.com/in/giacomo-gentili/|||||||Co-Founder & CPO|
+Francesco|Trovato|Co-Founder & CEO|https://www.linkedin.com/in/francesco-trovato-ft/|||||||Co-Founder & CEO|
+Giacomo|Pratesi|Co-Founder & CTO|https://www.linkedin.com/in/giacomo-pratesi/|||||||Co-Founder & CTO|
+Mario|Moschetta|Co-Founder & CMO|https://www.linkedin.com/in/mario-moschetta/|||||||Co-Founder & CMO|
+Pierluigi|Amati|Co-Founder & CTO|https://www.linkedin.com/in/pierluigi-amati-5795a1141/|||||||Co-Founder & CTO|
+Luigi|Di Marcantonio|Co-Founder & COO|https://www.linkedin.com/in/luigi-di-marcantonio-4a526a101/|||||||Co-Founder & COO|
+William|Lattanzi|Co-Founder & CEO|https://www.linkedin.com/in/william-lattanzi/|||||||Co-Founder & CEO|
+Ferdinando|Volpe|Co-Founder & COO|https://www.linkedin.com/in/ferdivolpe/|||||||Co-Founder & COO|
+William|Selmo|Co-Founder & CEO|https://www.linkedin.com/in/william-selmo-47407410b/|||||||Co-Founder & CEO|
+Tobia|Piovesan|Founder|https://www.linkedin.com/in/tobiapiovesan/|||||||Founder|
+Giorgio|Mortini|Co-Founder|https://www.linkedin.com/in/giorgio-mortini-7b5172a6/|||||||Co-Founder|
+Francesco|Pinna|CTO & Co-Founder|https://www.linkedin.com/in/francesco-pinna-767766188/|||||||CTO & Co-Founder|
+Dario|Ferretti|CEO & Co-Founder|https://www.linkedin.com/in/dario-ferretti-6972a627/|||||||CEO & Co-Founder|
+Riccardo|Momigliano|Co-Founder|https://www.linkedin.com/in/riccardo-momigliano-78849869/|||||||Co-Founder|
+Kentaro|Sohara|Co-Founder|https://www.linkedin.com/in/kentaro-sohara/|||||||Co-Founder|
+Loris|Cipollini|Co-Founder & COO|https://www.linkedin.com/in/loris-cipollini-1944b1171/|||||||Co-Founder & COO|
+Cosimo|Luigi Mattei|CEO|https://www.linkedin.com/in/cosimo-luigi-mattei-3750b94a/|||||||CEO|
+Luca|Lixi|Co-Founder & CEO|https://www.linkedin.com/in/lixiluca/|||||||Co-Founder & CEO|
+Gian|Mario Bisogno|Co-Founder & Product Designer|https://www.linkedin.com/in/gianmariobisogno/|||||||Co-Founder & Product Designer|
+Gabriele|Concli|Co-Founder & Product Engineer|https://www.linkedin.com/in/therealgabryx/|||||||Co-Founder & Product Engineer|
+Dario|Pedruzzi|Co-Founder & CTO|https://www.linkedin.com/in/dario-pedruzzi/|||||||Co-Founder & CTO|
+Simone|Tabellini|Co-Founder|https://www.linkedin.com/in/simonetabellini-digital-marketer/|||||||Co-Founder|
+Iacopo|Livia|Co-Founder|https://www.linkedin.com/in/iacopolivia/|||||||Co-Founder|
+Giacomo|Mantini|Co-Founder|https://www.linkedin.com/in/giacomomantini/|||||||Co-Founder|
+Pietro|Galimberti|CEO & Co-Founder|https://www.linkedin.com/in/pietro-galimberti/|||||||CEO & Co-Founder|
+Enrico|Castelli|CTO & Co-Founder|https://www.linkedin.com/in/e-caste/|||||||CTO & Co-Founder|
+Viola|Bonesu|COO & Co-Founder|https://www.linkedin.com/in/viola-bonesu/|||||||COO & Co-Founder|
+Nicola|Comelli|Co-Founder|https://www.linkedin.com/in/nicola-comelli/|||||||Co-Founder|
+Filippo|Benetti|Co-Founder & CTO|https://www.linkedin.com/in/filippo-benetti-data-analytics/|||||||Co-Founder & CTO|
+Fabio|Era|Co-Founder|https://www.linkedin.com/in/fabioera/|||||||Co-Founder|
+Marco|Agostini|Co-Founder & CEO|https://www.linkedin.com/in/magostinipoleepo/|||||||Co-Founder & CEO|
+Marco|Cerquozzi|Co-Founder|https://www.linkedin.com/in/marco-cerquozzi-poleepo/|||||||Co-Founder|
+Sandro|Borella|Co-Founder|https://www.linkedin.com/in/sandro-borella/|||||||Co-Founder|
+Edoardo|Guglielmini|Co-Founder & CEO|https://www.linkedin.com/in/edoardo-guglielmini-3828b0178/|||||||Co-Founder & CEO|
+Riccardo|Basso|Co-Founder & CPO|https://www.linkedin.com/in/riccardo-basso-9a2b18160/|||||||Co-Founder & CPO|
+Francesco|Musso|Co-Founder & CTO|https://www.linkedin.com/in/f-musso/|||||||Co-Founder & CTO|
+Davide|Fenati|Co-Founder & CEO|https://www.linkedin.com/in/davide-fenati-6b2990129/|||||||Co-Founder & CEO|
+Claudine|Rollandin|Founder|https://www.linkedin.com/in/claudine-rollandin-68b70b53/|||||||Founder|
+Tommaso|Poliero|Co-Founder|https://www.linkedin.com/in/tommaso-poliero-09355b18b/|||||||Co-Founder|
+Matteo|Sposito|Co-Founder|https://www.linkedin.com/in/matteo-sposito-1199a1131/|||||||Co-Founder|
+Stefano|Toxiri|Co-Founder & CEO|https://www.linkedin.com/in/stefanotoxiri/|||||||Co-Founder & CEO|
+Lorenzo|Diaco|CEO|https://www.linkedin.com/in/lorenzodiaco/|||||||CEO|
+Ciro|Esposito|CFO|https://www.linkedin.com/in/ciro-esposito-0bb413170/|||||||CFO|
+Gianluca|Cocco|Founder|https://www.linkedin.com/in/gianluca-cocco-32348331/|||||||Founder|
+Gaetano|de Maio|Founder|https://www.linkedin.com/in/gae-de-maio/|||||||Founder|
+Annalisa|Volpe|Co-Founder|https://www.linkedin.com/in/annalisa-volpe-257b98b6/|||||||Co-Founder|
+Ruan|Viljoen|R&D Scientist|https://www.linkedin.com/in/rviljoen91/|||||||R&D Scientist|
+Vincenzo|Tamborra|Prototyping & Project Manager|https://www.linkedin.com/in/vincenzo-tamborra-phd-b9253870/|||||||Prototyping & Project Manager|
+Gianvito|Lucivero|Co-Founder & CEO|https://www.linkedin.com/in/gianvito-lucivero-phd-1619a480/|||||||Co-Founder & CEO|
+Domenico|Tulli|Co-Founder & CTO|https://www.linkedin.com/in/dtulli/|||||||Co-Founder & CTO|
+Francesco|Sessa|CEO|https://www.linkedin.com/in/francescoasessa/|||||||CEO|
+Jacopo|Piana|Founder & CEO|https://www.linkedin.com/in/jacopo-piana-phd/|||||||Founder & CEO|
+Gianluca|Tirri|Co-Founder & Managing Director|https://www.linkedin.com/in/gianlucatirri/|||||||Co-Founder & Managing Director|
+Stefano|Moi|CTO|https://www.linkedin.com/in/stefano-moi-441a60a/|||||||CTO|
+Tommaso|Mariotti|COO & Co-Founder|https://www.linkedin.com/in/tommaso-mariotti-20ba53239/|||||||COO & Co-Founder|
+Dariush|Haghighi Tajvar|CEO & Co-Founder|https://www.linkedin.com/in/dariushhaghighitajvar/|||||||CEO & Co-Founder|
+Riccardo|Leonardi|Co-Founder & CEO|https://www.linkedin.com/in/riccardo-leonardi-b06962158/|||||||Co-Founder & CEO|
+Fabrizio|Custorella|Co-Founder & CFO|https://www.linkedin.com/in/fabrizio-custorella17/|||||||Co-Founder & CFO|
+Federico|Fedi|Co-Founder & CTO|https://www.linkedin.com/in/federico-fedi/|||||||Co-Founder & CTO|
+Giovanni|Lucifora|Co-Founder|https://www.linkedin.com/in/giovanni-lucifora/|||||||Co-Founder|
+Egidio|Canzoniere|Co-Founder|https://www.linkedin.com/in/egidio-canzoniere-b63470131/|||||||Co-Founder|
+Simone|Cavariani|Co-Founder & CPO|https://www.linkedin.com/in/simonecavariani/|||||||Co-Founder & CPO|
+Andrea|Pesaresi|Co-Founder and CTO|https://www.linkedin.com/in/andrea-pesaresi-307aa4240/|||||||Co-Founder and CTO|
+Filippo|Cavallari|Co-Founder|https://www.linkedin.com/in/filocava99/|||||||Co-Founder|
+Samuele|Berni|Co-Founder|https://www.linkedin.com/in/samuele-berni-927996170/|||||||Co-Founder|
+Luca|Rinaldi|Co Founder and CEO|https://www.linkedin.com/in/luca-rinaldi-294a60185/|||||||Co Founder and CEO|
+Tommaso|Farneti|Co-Founder|https://www.linkedin.com/in/tommaso-farneti-016795238/|||||||Co-Founder|
+Anass|Tai|Co-Founder|https://www.linkedin.com/in/anass-tai-00a326208/|||||||Co-Founder|
+Arianna|Dani|Co-Founder & COO|https://www.linkedin.com/in/arianna-dani-14708797/|||||||Co-Founder & COO|
+Davide|Lombardi|Co-Founder & COO|https://www.linkedin.com/in/davide-lombardi-/|||||||Co-Founder & COO|
+Edoardo|Conte|Co-Founder & CTO|https://www.linkedin.com/in/edoardoconte/|||||||Co-Founder & CTO|
+Lorenzo|D'Angelo|Co-Founder & CFO|https://www.linkedin.com/in/lorenzodangelo-/|||||||Co-Founder & CFO|
+Luca|Lotterio|Co-Founder & CEO|https://www.linkedin.com/in/luca-lotterio/|||||||Co-Founder & CEO|
+Jacopo|Zenzeri|Co-Founder & CEO|https://www.linkedin.com/in/jacopo-zenzeri/|||||||Co-Founder & CEO|
+Amel|Cherif|Co-Founder & CTO|https://www.linkedin.com/in/amel-cherif/|||||||Co-Founder & CTO|
+Maddalena|Mugnosso|Co-Founder & COO|https://www.linkedin.com/in/maddalena-mugnosso/|||||||Co-Founder & COO|
+Vincenzo|Sorice|Co-Founder|https://www.linkedin.com/in/vincenzosorice/|||||||Co-Founder|
+Mauro|Fontanarosa|Co-Founder|https://www.linkedin.com/in/maurofontanarosa/|||||||Co-Founder|
+Lucia|Pia De Mizio|Co-Founder|https://www.linkedin.com/in/lucia-pia-de-mizio-9780061b0/|||||||Co-Founder|
+Boris|Zamparano|Co-Founder|https://www.linkedin.com/in/boris-zamparano-8035281a1/|||||||Co-Founder|
+Chiara|Schettino|Co-Founder & CEO|https://www.linkedin.com/in/chiaraschettino/|||||||Co-Founder & CEO|
+Filippo|Toni|Co-Founder & COO|https://www.linkedin.com/in/filippotoni/|||||||Co-Founder & COO|
+Leonardo|Parmeggiani|Co-Founder|https://www.linkedin.com/in/leonardo-parmeggiani/|||||||Co-Founder|
+Stefano|De La Torre|CEO|https://www.linkedin.com/in/delatorrest/|||||||CEO|
+Federico|Giannotti|CTO|https://www.linkedin.com/in/federico-giannotti-6a56071b5/|||||||CTO|
+Gabriele|Mascaro|Co-Founder|https://www.linkedin.com/in/gabriele-mascaro-58136b86/|||||||Co-Founder|
+Dario|Brignone|Co-Founder & CTO|https://www.linkedin.com/in/dario-brignone-9302479/|||||||Co-Founder & CTO|
+Alberto|Dalmasso|Co-Founder & CEO|https://www.linkedin.com/in/alberto-dalmasso/|||||||Co-Founder & CEO|
+Samuele|Pinta|Co-Founder & CFO|https://www.linkedin.com/in/samuele-pinta/|||||||Co-Founder & CFO|
+Giacomo|Maggiore|Co-Founder|https://www.linkedin.com/in/giacomo-maggiore-499994263/|||||||Co-Founder|
+Luca|Cordioli|Co-Founder & CTO|https://www.linkedin.com/in/lucacordiolii/|||||||Co-Founder & CTO|
+Nicolás|Avelar|Co-Founder & CEO|https://www.linkedin.com/in/navelar-t/|||||||Co-Founder & CEO|
+Filippo| Maretti|Software Engineer|https://www.linkedin.com/in/filippo-maretti-967a092b3/|||||||Software Engineer|
+Marco|Vinciguerra|Co-Founder|https://www.linkedin.com/in/marco-vinciguerra-7ba365242/|||||||Co-Founder|
+Lorenzo|Padoan|Co-Founder|https://www.linkedin.com/in/lorenzo-padoan-4521a2154/|||||||Co-Founder|
+Silvia|Wang|Co-Founder & CEO|https://www.linkedin.com/in/silvia-wang-180a3347/|||||||Co-Founder & CEO|
+Daniele|Francescon|Co-Founder|https://www.linkedin.com/in/danifrancescon/|||||||Co-Founder|
+Lorenzo|Liguori|Co-Founder|https://www.linkedin.com/in/lorenzoliguori/|||||||Co-Founder|
+Mattia|Montepara|Co-Founder & CEO|https://www.linkedin.com/in/mattia-montepara/|||||||Co-Founder & CEO|
+Dario|Prencipe|Co-Founder|https://www.linkedin.com/in/dario-prencipe/|||||||Co-Founder|
+Mattia|Barbarossa|Founder & CEO|https://www.linkedin.com/in/mattia-barbarossa-594765104/|||||||Founder & CEO|
+Nicolò|Fugallo|Founder|https://www.linkedin.com/in/nicol%C3%B2-fugallo-221996229/|||||||Founder|
+Andrea|Codini|CEO & Co-Founder|https://www.linkedin.com/in/engandreacodini/|||||||CEO & Co-Founder|
+Luca|Savastano|CDO & Co-Founder|https://www.linkedin.com/in/luca-savastano-b09845251/|||||||CDO & Co-Founder|
+Piertobia|Laporta|COO & Co-Founder|https://www.linkedin.com/in/piertobia-laporta-5b480a211/|||||||COO & Co-Founder|
+Karim|Kassem|CTO & Co-Founder|https://www.linkedin.com/in/karim-kassem-73206022a/|||||||CTO & Co-Founder|
+Edoardo|Imparato|Co-Founder|https://www.linkedin.com/in/edoardo-imparato/|||||||Co-Founder|
+Francesco|Majno|Co-Founder|https://www.linkedin.com/in/francesco-majno-b3450526/|||||||Co-Founder|
+Ann|LoCicero|Founder & CEO|https://www.linkedin.com/in/ann-locicero/|||||||Founder & CEO|
+Alessia|Cacaveri|CMO|https://www.linkedin.com/in/alessiacacaveri/|||||||CMO|
+Alessandra|Pennuto|COO|https://www.linkedin.com/in/alessandrapennuto/|||||||COO|
+Eugenio|Bancaro|Co-Founder & CTO|https://www.linkedin.com/in/eugenio-bancaro-a63a8b49/|||||||Co-Founder & CTO|
+Tommaso|Centonze|Co-Founder|https://www.linkedin.com/in/tommaso-centonze/|||||||Co-Founder|
+Luca|Rodella|Co-Founder & CEO|https://www.linkedin.com/in/lucarodella/|||||||Co-Founder & CEO|
+Enrico|De Cupertinis|Co-Founder & CCO|https://www.linkedin.com/in/enrico-de-cupertinis-b7a4b71ba/|||||||Co-Founder & CCO|
+Raimondo|Lapillo|Co-Founder & CEO|https://www.linkedin.com/in/raimondo-lapillo/|||||||Co-Founder & CEO|
+Alessio|Zandegù|Business Developer|https://www.linkedin.com/in/alessio-zandeg%C3%B9-5a8125253/|||||||Business Developer|
+Nazareno|Mario Ciccarello|COO|https://www.linkedin.com/in/nazarenomariociccarello/|||||||COO|
+Maicol|Verzotto|CEO|https://www.linkedin.com/in/maicol-verzotto-75a12540/|||||||CEO|
+Cosimo|Franco|CTO|https://www.linkedin.com/in/cosimo-franco/|||||||CTO|
+Giorgio|Pagliara|CEO|https://www.linkedin.com/in/giorgiopagliara/|||||||CEO|
+Giordano|Brachini|Founder|https://www.linkedin.com/in/giordanobrachini/|||||||Founder|
+Valentina|Palazzo|CEO & Co-Founder|https://www.linkedin.com/in/imvalentinapalazzo/|||||||CEO & Co-Founder|
+Hoang|Huynh|Co-Founder|https://www.linkedin.com/in/hchuynh/|||||||Co-Founder|
+Davide|Bodini|Co-Founder|https://www.linkedin.com/in/davide-bodini/|||||||Co-Founder|
+Matteo|Gambera|Co-Founder|https://www.linkedin.com/in/matteo-gambera/|||||||Co-Founder|
+Vito|Lomele|Co-Founder|https://www.linkedin.com/in/vitolomele/|||||||Co-Founder|
+Matteo|Trovò|Co-Founder & CEO|https://www.linkedin.com/in/matteo-trovo/|||||||Co-Founder & CEO|
+Anton|Morale|Co-Founder & CTO|https://www.linkedin.com/in/anton-morale/|||||||Co-Founder & CTO|
+Nicolò|Caruzzo|Co-Founder & COO|https://www.linkedin.com/in/nicolocaruzzo/|||||||Co-Founder & COO|
+Edoardo|Vallebella|Co-Founder & CEO|https://www.linkedin.com/in/edoardovallebella/|||||||Co-Founder & CEO|
+Amir|Salama|Co-Founder & CTO|https://www.linkedin.com/in/amir-salama/|||||||Co-Founder & CTO|
+Fabrizio|Aiello|Co-Founder & COO|https://www.linkedin.com/in/fabrizio-aiello/|||||||Co-Founder & COO|
+Roberto|Solari|Software Developer|https://www.linkedin.com/in/roberto-solari-dev/|||||||Software Developer|
+Silvia|De Carlo|Head of Design|https://www.linkedin.com/in/silvia-de-carlo/|||||||Head of Design|
+Giuseppe|Cela|Founder|https://www.linkedin.com/in/giuseppecela/|||||||Founder|
+Samuele|Caputo|Web Developer|https://www.linkedin.com/in/samuele-caputo-69139a197/|||||||Web Developer|
+Gabriele|Salvi|CEO|https://www.linkedin.com/in/gabrielesalvi/|||||||CEO|
+Alessio| Gandelli|CTO|https://www.linkedin.com/in/alessiogandelli/|||||||CTO|
+Filippo|Rocca|"Co-Founder | CEO"|https://www.linkedin.com/in/filippo-rocca-9ba01b52/|||||||"Co-Founder | CEO"|
+Ferruccio|Ferruzzi|"Co-Founder | CBO"|https://www.linkedin.com/in/ferruccio-ferruzzi-1713b015a/|||||||"Co-Founder | CBO"|
+Francesco| Durighetto|"Co-Founder | Chief R&D Officer"|https://www.linkedin.com/in/francescodurighetto/|||||||"Co-Founder | Chief R&D Officer"|
+Federica|Rossi|"Co-Founder | CPO"|https://www.linkedin.com/in/federica-rossi-135944b6/|||||||"Co-Founder | CPO"|
+Fabrizio|Chiara|Founder & CEO|https://www.linkedin.com/in/fabriziochiara/|||||||Founder & CEO|
+Francesco|Laffi|Co-Founder & CTO|https://www.linkedin.com/in/francescolaffi/|||||||Co-Founder & CTO|
+Marco|Tricarico|Co-Founder & CEO|https://www.linkedin.com/in/marcotricarico/|||||||Co-Founder & CEO|
+Redi|Vyshka|Co-Founder|https://www.linkedin.com/in/redivyshka/|||||||Co-Founder|
+Rosilari|Bellacosa|Co-Founder & CTO|https://www.linkedin.com/in/rosilari-bellacosa-phd/|||||||Co-Founder & CTO|
+Federica|Gerace|Co-Founder|https://www.linkedin.com/in/federica-gerace/|||||||Co-Founder|
+Daniele|Conti|Co-Founder & CEO|https://www.linkedin.com/in/daniele-conti-phd/|||||||Co-Founder & CEO|
+Antonio|Picozzi|CEO & Co-Founder|https://www.linkedin.com/in/antonio-picozzi-514429146/|||||||CEO & Co-Founder|
+Niccolò|Francesco Marino|C*O & Co-Founder|https://www.linkedin.com/in/niccolo-francesco-marino/|||||||C*O & Co-Founder|
+Vincenzo|Bonaccorso|CTO & Co-Founder|https://www.linkedin.com/in/vincenzo-bonaccorso/|||||||CTO & Co-Founder|
+Fabrizio|Lallo|Founder|https://www.linkedin.com/in/fabrizio-lallo/|||||||Founder|
+Edvaldo|G.|Co-Founder & CTO|https://www.linkedin.com/in/edvaldo-g-20a271121/|||||||Co-Founder & CTO|
+Riccardo|Russo|Co-Founder & CEO|https://www.linkedin.com/in/rusricc/|||||||Co-Founder & CEO|
+Ludovico|Grassi|Co-Founder & CMO|https://www.linkedin.com/in/ludovicograssi/|||||||Co-Founder & CMO|
+Vincenzo|Mansi|Co-Founder & CEO|https://www.linkedin.com/in/vincenzo-mansi-21770012a/|||||||Co-Founder & CEO|
+Alice|Carbonara|Co-Founder & COO|https://www.linkedin.com/in/alice-carbonara-440955210/|||||||Co-Founder & COO|
+Lisa|Iannello|Co-Founder & CPO|https://www.linkedin.com/in/lisaiannello/|||||||Co-Founder & CPO|
+Doris|Messina|Co-Founder & CEO|https://www.linkedin.com/in/dorismessina/|||||||Co-Founder & CEO|
+Bruno|Reggiani|Co-Founder & COO|https://www.linkedin.com/in/breggiani/|||||||Co-Founder & COO|
+Andrea|Susta|Co-Founder|https://www.linkedin.com/in/andrea-susta/|||||||Co-Founder|
+Stefan|Grbović|Co-Founder & CEO|https://www.linkedin.com/in/stefan-grbovi%C4%87-97b4021b6/|||||||Co-Founder & CEO|
+Alfredo|Sergio Dallari|Co-Founder & CTO|https://www.linkedin.com/in/alfredo-sergio-dallari-700864118/|||||||Co-Founder & CTO|
+Giuseppe|Cristiano De Bernardo|Co-Founder & CFO|https://www.linkedin.com/in/giuseppecristianodebernardo/|||||||Co-Founder & CFO|
+Andjela|Bozinac|Co-Founder & CSO|https://www.linkedin.com/in/bozinac-andjela24/|||||||Co-Founder & CSO|
+Marco|Marchesani|Co-Founder & CMO|https://www.linkedin.com/in/marcomarchesani/|||||||Co-Founder & CMO|
+Jules-Arthur|Sastre|Co-Founder & CEO|https://www.linkedin.com/in/jules-arthur-sastre/|||||||Co-Founder & CEO|
+Giorgio|Seveso|Co-Founder|https://www.linkedin.com/in/giorgio-seveso-112007156/|||||||Co-Founder|
+Davide|Todeschini|Founder|https://www.linkedin.com/in/davide-todeschini/|||||||Founder|
+Alessandro|Cappellazzo|Co-Founder|https://www.linkedin.com/in/alessandro-cappellazzo-31b3b9206/|||||||Co-Founder|
+Elia|Romano|Co-Founder & COO|https://www.linkedin.com/in/elia-romano-5039351ab/|||||||Co-Founder & COO|
+Thomas|Romano|Co-Founder & CEO|https://www.linkedin.com/in/thomas-romano-636268195/|||||||Co-Founder & CEO|
+Simone|Fantinato|Co-Founder|https://www.linkedin.com/in/simone-fantinato/|||||||Co-Founder|
+Savio|Los|Co-Founder|https://www.linkedin.com/in/savio-los-a7ba8458/|||||||Co-Founder|
+Elisabetta|Faggiana|Co-Founder|https://www.linkedin.com/in/elisabetta-faggiana-74761820/|||||||Co-Founder|
+Lorenzo|Braghetto|CTO|https://www.linkedin.com/in/lorenzo-braghetto/|||||||CTO|
+Edoardo|Parisi|CEO|https://www.linkedin.com/in/edoardoparisi/|||||||CEO|
+Umberto|Parisi|Co-Founder|https://www.linkedin.com/in/umberto-parisi/|||||||Co-Founder|
+Tommaso|Sorrentino|COO|https://www.linkedin.com/in/tommaso-sorrentino/|||||||COO|
+Danila|De Stefano|Founder & CEO|https://www.linkedin.com/in/danila-de-stefano-844533126/|||||||Founder & CEO|
+Andrea|Zuanetti|Co-Founder & CEO|https://www.linkedin.com/in/andrea-zuanetti-97704980/|||||||Co-Founder & CEO|
+Alessandro|Broglia|Co-Founder|https://www.linkedin.com/in/alessandrobroglia/|||||||Co-Founder|
+Lorenzo|Vendemini|Co-Founder & CPO|https://www.linkedin.com/in/lorenzovendemini/|||||||Co-Founder & CPO|
+Michele|Grazioli|Founder|https://www.linkedin.com/in/michele-grazioli-74789178/|||||||Founder|
+Matteo|Masserdotti|CEO & Founder|https://www.linkedin.com/in/matteomasserdotti/|||||||CEO & Founder|
+Veronica|Fusco|Founder|https://www.linkedin.com/in/veronica-fusco-218bb2b4/|||||||Founder|
+Vincenzo|Vitiello|Co-Founder & CPO|https://www.linkedin.com/in/vincenzo-vitiello/|||||||Co-Founder & CPO|
+Paolo|Ganis|Co-Founder & CEO|https://www.linkedin.com/in/paologanis/|||||||Co-Founder & CEO|
+Alessio|D'Andrea|Co-Founder & COO|https://www.linkedin.com/in/aledand/|||||||Co-Founder & COO|
+Alessandro|Galli|Co-Founder|https://www.linkedin.com/in/alessandrogallidalmau/|||||||Co-Founder|
+Alessio|Primo Gavinelli|Co-Founder|https://www.linkedin.com/in/alessioprimogavinelli/|||||||Co-Founder|
+Simone|Pessina|Co-Founder|https://www.linkedin.com/in/simone-pessina/|||||||Co-Founder|
+Daniel|Kaidanovic|Co-Founder & CTO|https://www.linkedin.com/in/daniel-kaidanovic-b62060216/|||||||Co-Founder & CTO|
+Carlo|Villani|Co-Founder & CEO|https://www.linkedin.com/in/carlo-villani-943196215/|||||||Co-Founder & CEO|
+Mattia|Bertolani|Co-Founder & CFO|https://www.linkedin.com/in/mattiabertolani281297/|||||||Co-Founder & CFO|
+Michelangelo|Guarise|Founder & CEO|https://www.linkedin.com/in/michelangelo-guarise/|||||||Founder & CEO|
+Giacomo|Stefanini|Founder|https://www.linkedin.com/in/giacomostefanini/|||||||Founder|
+Carlo|Bettini|Co-Founder & CEO|https://www.linkedin.com/in/carlobettini/|||||||Co-Founder & CEO|
+Alessandro|Villa|Co-Founder & COO|https://www.linkedin.com/in/alessandro1villa/|||||||Co-Founder & COO|
+Michele|Quagliata|Co-Founder & CLO|https://www.linkedin.com/in/michele-quagliata-ba6126137/|||||||Co-Founder & CLO|
+Niccolò|Ferrari|Co-Founder|https://www.linkedin.com/in/niccol%C3%B2-ferrari/|||||||Co-Founder|
+Mario|Ferretti|Co-Founder & CSO|https://www.linkedin.com/in/marioferretti/|||||||Co-Founder & CSO|
+Samuele|Donato d'Addesio|Co-Founder|https://www.linkedin.com/in/samuele-donato-d-addesio-365382208/|||||||Co-Founder|
+Davide|Guerrieri|Co-Founder & CEO|https://www.linkedin.com/in/davide-guerrieri-384baa222/|||||||Co-Founder & CEO|
+Fabio|Bin|Co-Founder|https://www.linkedin.com/in/fabiobin/|||||||Co-Founder|
+Paolo|De Nadai|Co-Founder|https://www.linkedin.com/in/paolodenadai/|||||||Co-Founder|
+Erika|De Santi|Co-Founder|https://www.linkedin.com/in/erikadesanti/|||||||Co-Founder|
+Alessandro|Busso|Co-Founder|https://www.linkedin.com/in/alessandro-busso/|||||||Co-Founder|
+Tommaso|Seita|Co-Founder & CEO|https://www.linkedin.com/in/tommaso-seita/|||||||Co-Founder & CEO|
+Chiara|Petrioli|Founder & CEO|https://www.linkedin.com/in/chiara-petrioli-77002422/|||||||Founder & CEO|
+Cesare|Gamberi|Co-Founder|https://www.linkedin.com/in/cesare-gamberi/|||||||Co-Founder|
+Andrea|Ferrero|Co-Founder & Co-CEO|https://www.linkedin.com/in/youngplatform-andreferre/|||||||Co-Founder & Co-CEO|
+Alexandru|Stefan G.|Co-Founder & Co-CEO|https://www.linkedin.com/in/ste-youngplatform/|||||||Co-Founder & Co-CEO|
+Samuele|Raimondo|Co-Founder & CTO|https://www.linkedin.com/in/samueleraimondo98/|||||||Co-Founder & CTO|
+Leonardo|Vezzati|Co-Founder|https://www.linkedin.com/in/leonardo-vezzati/|||||||Co-Founder|
+Nicola|Sebastianelli|Co-Founder & CTO|https://www.linkedin.com/in/nicolasebastianelli/|||||||Co-Founder & CTO|
+Daniele|Borlizzi|Co-Founder|https://www.linkedin.com/in/danbor/|||||||Co-Founder|
+Alexandros|Fokianos|Co-Founder|https://www.linkedin.com/in/fokianos-alexandros96/|||||||Co-Founder|
+Aurora|Maggio|Co-founder & CEO|https://www.linkedin.com/in/aurora-maggio/|||||||Co-founder & CEO|
+Irene|Simone|Co-Founder & CEO|https://www.linkedin.com/in/irene-simone-6b398921/|||||||Co-Founder & CEO|
+Giulio|Simone|Co-Founder|https://www.linkedin.com/in/giulio-simone-377538169/|||||||Co-Founder|
+Samuele|Fattori|Co-Founder|https://www.linkedin.com/in/samuelefattori/|||||||Co-Founder|
+Giacomo|Fattori|Co-Founder|https://www.linkedin.com/in/giacomo-fattori/|||||||Co-Founder|
+Giovanni|Turri|Co-Founder|https://www.linkedin.com/in/giovanni-turri1996/|||||||Co-Founder|
+Gabriele|Rorandelli|Co-Founder & CEO|https://www.linkedin.com/in/gabriele-rorandelli-05510a1a4/|||||||Co-Founder & CEO|
+Alessio|Troisi|Co-Founder & COO|https://www.linkedin.com/in/alessio-troisi-825516167/|||||||Co-Founder & COO|
+Abbie|Clement|Co-Founder|https://www.linkedin.com/in/abbiemclement/|||||||Co-Founder|
+Maxim|Ozolin|Co-Founder|https://www.linkedin.com/in/maximozolin/|||||||Co-Founder|
+Andrea|Bolognesi|Co-Founder|https://www.linkedin.com/in/andrea-bolognesi-37018176/|||||||Co-Founder|

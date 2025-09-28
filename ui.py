@@ -70,11 +70,13 @@ def main():
     # Main navigation
     page = st.sidebar.selectbox(
         "Choose a page:",
-        ["📊 Dashboard", "➕ Add Entity", "🔗 Add Relationship", "🔍 Search & Browse", "🌐 Graph Visualization", "📤 CSV Import", "🕷️ C14 Scraper"]
+        ["📊 Dashboard", "📈 Analytics", "➕ Add Entity", "🔗 Add Relationship", "🔍 Search & Browse", "🌐 Graph Visualization", "📤 CSV Import", "🕷️ C14 Scraper"]
     )
     
     if page == "📊 Dashboard":
         show_dashboard()
+    elif page == "📈 Analytics":
+        show_analytics()
     elif page == "➕ Add Entity":
         show_add_entity()
     elif page == "🔗 Add Relationship":
@@ -152,6 +154,256 @@ def show_dashboard():
         with col2:
             if st.button("🧹 Clean Duplicates", type="secondary"):
                 st.info("🔧 Duplicate cleaning feature will be available after app restart.")
+
+def show_analytics():
+    """Show interesting analytics and insights about the Italian tech ecosystem"""
+    st.header("📈 Italian Tech Ecosystem Analytics")
+    
+    if st.session_state.repo:
+        tab1, tab2, tab3, tab4 = st.tabs(["🏆 Top Investors", "💰 Investment Insights", "🚀 Startup Analysis", "🌐 Network Analysis"])
+        
+        with tab1:
+            st.subheader("🏆 Most Active Investors")
+            
+            # Query for most active investors
+            query_active_investors = """
+            MATCH (investor)-[r:INVESTS_IN]->(startup:Startup)
+            RETURN investor.name AS investor_name, 
+                   labels(investor)[0] AS investor_type,
+                   count(r) AS investments_count,
+                   collect(startup.name)[0..5] AS sample_startups
+            ORDER BY investments_count DESC
+            LIMIT 10
+            """
+            
+            with st.spinner("Loading top investors..."):
+                try:
+                    result = st.session_state.repo.connection.execute_query(query_active_investors)
+                    if result:
+                        df = pd.DataFrame(result)
+                        
+                        col1, col2 = st.columns([2, 1])
+                        with col1:
+                            st.dataframe(df[['investor_name', 'investor_type', 'investments_count']], 
+                                       column_config={
+                                           'investor_name': 'Investor Name',
+                                           'investor_type': 'Type',
+                                           'investments_count': 'Investments'
+                                       }, use_container_width=True)
+                        
+                        with col2:
+                            st.bar_chart(df.set_index('investor_name')['investments_count'])
+                    else:
+                        st.info("No investment data found.")
+                except Exception as e:
+                    st.error(f"Error loading investor data: {e}")
+            
+            # Distribution of investor types
+            st.subheader("📊 Investor Type Distribution")
+            query_investor_types = """
+            MATCH (n)
+            WHERE n:VC_Firm OR n:Angel_Syndicate OR n:Institution OR n:VC_Fund OR n:Corporate
+            RETURN labels(n)[0] AS investor_type, count(n) AS count
+            ORDER BY count DESC
+            """
+            
+            try:
+                result = st.session_state.repo.connection.execute_query(query_investor_types)
+                if result:
+                    df_types = pd.DataFrame(result)
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.dataframe(df_types, use_container_width=True)
+                    with col2:
+                        st.pie_chart(df_types.set_index('investor_type')['count'])
+            except Exception as e:
+                st.error(f"Error loading investor types: {e}")
+        
+        with tab2:
+            st.subheader("💰 Investment Round Analysis")
+            
+            # Funding rounds analysis
+            query_funding_rounds = """
+            MATCH (investor)-[r:INVESTS_IN]->(startup:Startup)
+            WHERE r.round_type IS NOT NULL
+            RETURN r.round_type AS round_type, 
+                   count(r) AS count,
+                   avg(toFloat(replace(replace(replace(r.amount, 'EUR', ''), 'USD', ''), '.', ''))) AS avg_amount
+            ORDER BY count DESC
+            """
+            
+            try:
+                result = st.session_state.repo.connection.execute_query(query_funding_rounds)
+                if result:
+                    df_rounds = pd.DataFrame(result)
+                    
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.subheader("Rounds by Type")
+                        st.bar_chart(df_rounds.set_index('round_type')['count'])
+                    
+                    with col2:
+                        st.subheader("Round Details")
+                        st.dataframe(df_rounds, use_container_width=True)
+            except Exception as e:
+                st.error(f"Error loading funding rounds: {e}")
+            
+            # Top funded startups
+            st.subheader("🚀 Most Funded Startups")
+            query_funded_startups = """
+            MATCH (investor)-[r:INVESTS_IN]->(startup:Startup)
+            WHERE r.amount IS NOT NULL AND r.amount <> ''
+            RETURN startup.name AS startup_name,
+                   startup.sector AS sector,
+                   count(r) AS funding_rounds,
+                   collect(DISTINCT r.round_type) AS round_types,
+                   collect(DISTINCT investor.name)[0..3] AS top_investors
+            ORDER BY funding_rounds DESC
+            LIMIT 15
+            """
+            
+            try:
+                result = st.session_state.repo.connection.execute_query(query_funded_startups)
+                if result:
+                    df_funded = pd.DataFrame(result)
+                    st.dataframe(df_funded, use_container_width=True)
+            except Exception as e:
+                st.error(f"Error loading funded startups: {e}")
+        
+        with tab3:
+            st.subheader("🚀 Startup Ecosystem Overview")
+            
+            # Startups by sector
+            query_sectors = """
+            MATCH (s:Startup)
+            WHERE s.sector IS NOT NULL AND s.sector <> ''
+            RETURN s.sector AS sector, count(s) AS count
+            ORDER BY count DESC
+            LIMIT 20
+            """
+            
+            try:
+                result = st.session_state.repo.connection.execute_query(query_sectors)
+                if result:
+                    df_sectors = pd.DataFrame(result)
+                    
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.subheader("Top Sectors")
+                        st.bar_chart(df_sectors.set_index('sector')['count'])
+                    
+                    with col2:
+                        st.subheader("Sector Distribution")
+                        st.dataframe(df_sectors, use_container_width=True)
+            except Exception as e:
+                st.error(f"Error loading sectors: {e}")
+            
+            # Startups by employee count
+            st.subheader("👥 Company Size Distribution")
+            query_employees = """
+            MATCH (s:Startup)
+            WHERE s.employee_count IS NOT NULL AND s.employee_count <> ''
+            RETURN s.employee_count AS size, count(s) AS count
+            ORDER BY 
+                CASE s.employee_count
+                    WHEN '1-10' THEN 1
+                    WHEN '11-50' THEN 2
+                    WHEN '51-200' THEN 3
+                    WHEN '201-500' THEN 4
+                    WHEN '501-1000' THEN 5
+                    WHEN '1000+' THEN 6
+                    ELSE 7
+                END
+            """
+            
+            try:
+                result = st.session_state.repo.connection.execute_query(query_employees)
+                if result:
+                    df_employees = pd.DataFrame(result)
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.bar_chart(df_employees.set_index('size')['count'])
+                    with col2:
+                        st.dataframe(df_employees, use_container_width=True)
+            except Exception as e:
+                st.error(f"Error loading employee data: {e}")
+            
+            # Top startups by founding year
+            st.subheader("📅 Startup Founding Timeline")
+            query_timeline = """
+            MATCH (s:Startup)
+            WHERE s.founding_year IS NOT NULL AND s.founding_year > 2000
+            RETURN s.founding_year AS year, count(s) AS startups_founded
+            ORDER BY year DESC
+            LIMIT 15
+            """
+            
+            try:
+                result = st.session_state.repo.connection.execute_query(query_timeline)
+                if result:
+                    df_timeline = pd.DataFrame(result)
+                    st.line_chart(df_timeline.set_index('year')['startups_founded'])
+                    st.dataframe(df_timeline, use_container_width=True)
+            except Exception as e:
+                st.error(f"Error loading timeline data: {e}")
+        
+        with tab4:
+            st.subheader("🌐 Network Insights")
+            
+            # Most connected founders
+            query_founders = """
+            MATCH (p:Person)-[r:FOUNDED]->(s:Startup)
+            RETURN p.name AS founder_name, 
+                   p.surname AS founder_surname,
+                   count(r) AS startups_founded,
+                   collect(s.name) AS startups
+            ORDER BY startups_founded DESC
+            LIMIT 10
+            """
+            
+            try:
+                result = st.session_state.repo.connection.execute_query(query_founders)
+                if result:
+                    df_founders = pd.DataFrame(result)
+                    st.subheader("🏅 Serial Entrepreneurs")
+                    
+                    # Show only multi-startup founders
+                    multi_founders = df_founders[df_founders['startups_founded'] > 1]
+                    if not multi_founders.empty:
+                        st.dataframe(multi_founders[['founder_name', 'founder_surname', 'startups_founded']], 
+                                   use_container_width=True)
+                    else:
+                        st.info("No serial entrepreneurs found (founders with multiple startups)")
+            except Exception as e:
+                st.error(f"Error loading founder data: {e}")
+            
+            # Co-investment analysis
+            st.subheader("🤝 Co-Investment Patterns")
+            query_coinvestment = """
+            MATCH (i1)-[:INVESTS_IN]->(s:Startup)<-[:INVESTS_IN]-(i2)
+            WHERE id(i1) < id(i2)
+            RETURN i1.name AS investor1, i2.name AS investor2, 
+                   count(s) AS co_investments,
+                   collect(s.name)[0..3] AS sample_startups
+            ORDER BY co_investments DESC
+            LIMIT 10
+            """
+            
+            try:
+                result = st.session_state.repo.connection.execute_query(query_coinvestment)
+                if result:
+                    df_coinvest = pd.DataFrame(result)
+                    # Show only pairs with multiple co-investments
+                    frequent_pairs = df_coinvest[df_coinvest['co_investments'] > 1]
+                    if not frequent_pairs.empty:
+                        st.dataframe(frequent_pairs, use_container_width=True)
+                    else:
+                        st.info("No frequent co-investment patterns found")
+            except Exception as e:
+                st.error(f"Error loading co-investment data: {e}")
+    
+    else:
+        st.error("No Neo4j connection available.")
 
 def show_add_entity():
     """Show forms for adding new entities"""

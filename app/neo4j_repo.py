@@ -59,12 +59,11 @@ class Neo4jRepository:
     # --- ENTITY CREATION METHODS ---
     
     def create_person(self, person_data: Dict) -> bool:
-        """Create a Person node (uses MERGE to avoid duplicates by name)"""
+        """Create a Person node (uses MERGE to avoid duplicates by name and surname)"""
         query = """
-        MERGE (p:Person {name: $name})
+        MERGE (p:Person {name: $name, surname: $surname})
         ON CREATE SET 
             p.id = randomUUID(),
-            p.surname = $surname,
             p.role_type = $role_type,
             p.linkedin_url = $linkedin_url,
             p.twitter_handle = $twitter_handle,
@@ -78,7 +77,6 @@ class Neo4jRepository:
             p.created_at = datetime(),
             p.updated_at = datetime()
         ON MATCH SET
-            p.surname = $surname,
             p.role_type = $role_type,
             p.linkedin_url = $linkedin_url,
             p.twitter_handle = $twitter_handle,
@@ -426,8 +424,9 @@ class Neo4jRepository:
     def create_angel_investment_relationship(self, person_name: str, startup_name: str, 
                                            investment_data: Dict) -> bool:
         """Create ANGEL_INVESTS_IN relationship (uses MERGE to avoid duplicates by person+startup+date)"""
+        
         query = """
-        MATCH (person:Person {name: $person_name})
+        MATCH (person:Person {name: $first_name, surname: $last_name})
         MATCH (startup:Startup {name: $startup_name})
         MERGE (person)-[r:ANGEL_INVESTS_IN {
             investment_date: date($investment_date),
@@ -445,7 +444,8 @@ class Neo4jRepository:
         """
         try:
             params = {
-                'person_name': person_name,
+                'first_name': first_name,
+                'last_name': last_name,
                 'startup_name': startup_name,
                 'investment_date': investment_data['investment_date'].isoformat(),
                 'round_stage': investment_data['round_stage'],
@@ -523,32 +523,36 @@ class Neo4jRepository:
             logger.error(f"Failed to create fund management relationship: {e}")
             return False
     
-    def create_founded_relationship(self, person_name: str, startup_name: str, 
+    def create_founded_relationship(self, person_name: str, person_surname: str, startup_name: str, 
                                   founding_data: Dict) -> bool:
         """Create FOUNDED relationship (uses MERGE to avoid duplicates by person+startup)"""
+        first_name = person_name.strip()
+        last_name = person_surname.strip()
+        
         query = """
-        MATCH (person:Person {name: $person_name})
+        MATCH (person:Person {name: $first_name, surname: $last_name})
         MATCH (startup:Startup {name: $startup_name})
         MERGE (person)-[r:FOUNDED]->(startup)
         ON CREATE SET
             r.role = $role,
-            r.founding_date = date($founding_date),
+            r.founding_date = CASE WHEN $founding_date IS NOT NULL THEN date($founding_date) ELSE null END,
             r.equity_percentage = $equity_percentage,
             r.is_current = $is_current,
-            r.exit_date = date($exit_date)
+            r.exit_date = CASE WHEN $exit_date IS NOT NULL THEN date($exit_date) ELSE null END
         ON MATCH SET
             r.role = $role,
-            r.founding_date = date($founding_date),
+            r.founding_date = CASE WHEN $founding_date IS NOT NULL THEN date($founding_date) ELSE null END,
             r.equity_percentage = $equity_percentage,
             r.is_current = $is_current,
-            r.exit_date = date($exit_date)
+            r.exit_date = CASE WHEN $exit_date IS NOT NULL THEN date($exit_date) ELSE null END
         RETURN r
         """
         try:
             params = {
-                'person_name': person_name,
+                'first_name': first_name,
+                'last_name': last_name,
                 'startup_name': startup_name,
-                'founding_date': str(founding_data['founding_date']),
+                'founding_date': str(founding_data['founding_date']) if founding_data.get('founding_date') else None,
                 'exit_date': str(founding_data['exit_date']) if founding_data.get('exit_date') else None,
                 **founding_data
             }

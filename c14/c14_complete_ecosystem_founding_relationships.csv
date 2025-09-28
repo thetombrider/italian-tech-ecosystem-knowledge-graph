@@ -1,0 +1,518 @@
+person_name|person_surname|startup_name|role|founding_date|equity_percentage|is_current|exit_date
+Gianluca|Epifani|4books|CTO|2017||True|
+Marco|Montemagno|4books|Founder|2017||True|
+Marco|Calabro|4books|COO & Co-Founder|2017||True|
+Lorenzo|Allamprese|7Seconds App|COO|2025||True|
+Mattia|Peracchi|AISent|CTO|2018||True|
+Daniele|Gamba|AISent|CEO|2018||True|
+Emanuele|Gusso|Algor|Co-Founder|2021||True|
+Fabio|Frattin|Algor|Co-Founder|2021||True|
+Mauro|Musarra|Algor|Co-Founder & CEO|2021||True|
+Giovanni|Cioffi|Algor|Co-Founder|2021||True|
+Antonino|Geraci|Algor|Co-Founder|2021||True|
+Matteo|Tarantino|Algor|Co-Founder & CTO|2021||True|
+Daniele|Di Viccaro|Always Friday|Co-Founder & CPO|2024||True|
+Antonio|Restaino|Always Friday|Head of Sales|2024||True|
+Lorenzo|Balzani|Always Friday|CTO|2024||True|
+Gianluca|Sordano|Always Friday|Co-Founder & CEO|2024||True|
+Sonia|Paonessa|Amalia|Founder & CEO|2020||True|
+Marco|Da Rin Zanco|amuseapp|Co-Founder & CEO|2015||True|
+Michele|Da Rold|amuseapp|Co-Founder|2015||True|
+Andrea|Riva|Antares Electrolysis|Co-Founder & CEO|2024||True|
+Michele|Ferri|Antares Electrolysis|Co-Founder & CSO|2024||True|
+Sebastiano|Bellani|Antares Electrolysis|Co-Founder & CTO|2024||True|
+Claudio|Cama|Appbox.cloud|Founder|2023||True|
+Ilyich|Vismara|Arkemis|CTO|2020||True|
+Dorian|Mercatante|Arkemis|CEO|2020||True|
+Manolo|Battista|Arkemis|COO|2020||True|
+Silvio|Bonomi|Artemis Leads|Founder|2024||True|
+Vincenzo|Schifano|Aryel|Co-Founder & COO|2019||True|
+Mattia|Salvi|Aryel|Co-Founder & CEO|2019||True|
+Leonardo|Persico|Aryel|Co-Founder & Tech Director|2019||True|
+Francesco|Froni|Athena|Co-Founder|2024||True|
+Giacomo|Rossi|Athena|Co-Founder|2024||True|
+Alfredo|Ceci|Athena|Co-Founder|2024||True|
+Ferruccio|Tasca|Aurea Hub|Fo-Founder & CEO|2022||True|
+Jacopo|Pertile|AWMS - Workforce Management|Co-Founder|2020||True|
+Carlo|Pasqualetto|AWMS - Workforce Management|Co-Founder & CEO|2020||True|
+Roberto|Nicastro|Banca AideXa|Co-Founder|2019||True|
+Federico|Sforza|Banca AideXa|Co-Founder & CEO|2019||True|
+Massimiliano|Carraro|Behavix|Co-Founder|2024||True|
+Stefania|Malfatti|Behavix|Co-Founder & CEO|2024||True|
+Alessandra|Ureche|BiHilo|Founder|2024||True|
+Andrea|Maranelli|Bikeflip|Co-Founder & CEO|2020||True|
+Fabio|Wibmer|Bikeflip|Co-Founder|2020||True|
+Nikolai|Holder|Bikeflip|Co-Founder|2020||True|
+Giorgio|Ennas|BIOMEYE|CEO|2022||True|
+Giovanni|Antonio Zappatore|BionIT Labs|Co-Founder & CEO|2018||True|
+Federico|Gaetani|BionIT Labs|Co-Founder & CTO|2018||True|
+Matteo|Aventaggiato|BionIT Labs|Co-Founder & COO|2018||True|
+Emanuele|Cipriani|BONOOS|Co-Founder|2023||True|
+Giovanni|Scansani|BONOOS|Co-Founder|2023||True|
+Fabrizio|Pinci|BonusX|Co-Founder|2020||True|
+Giovanni|Pizza|BonusX|Co-Founder & CEO|2020||True|
+Marta|Basso|Brandplane|Co-Founder & CEO|2023||True|
+Emanuele|Bartolesi|Brandplane|Co-Founder & CTO|2023||True|
+Luca|Cozzarini|BRUM|Co-Founder|2024||True|
+Stefano|Cortese|Buddyfit|Co-Founder & CTO|2018||True|
+Stefano|Manzoni|Buddyfit|Co-Founder & COO|2018||True|
+Giovanni|Ciferri|Buddyfit|Co-Founder & CEO|2018||True|
+Stefano|Tazio|Builtdifferent|Co-Founder|2022||True|
+Riccardo|Pirlea|Builtdifferent|Co-Founder|2022||True|
+Cristian|Nozzi|Cassandra|Founder & CTO|2022||True|
+Claudio|Cardinale|Cents|Co-Founder & CTO|2021||True|
+Alessio|Mazzalupi|Cents|Co-Founder|2021||True|
+Riccardo|Valobra|Cents|Co-Founder|2021||True|
+Fabrizio|Maiocco|CGM Verse|Co-Founder|2023||True|
+Juri|Cinti|CGM Verse|Co-Founder|2023||True|
+Enrico|Gramaglia|CGM Verse|Co-Founder|2023||True|
+Paolo|De Giglio|chiama.ai|CEO|2023||True|
+Marco|Agnoletto|Ciao Elsa|Co-Founder|2023||True|
+Anna|Vinci|Ciao Elsa|Co-Founder|2023||True|
+Alessio|Pracchia|Clubbing|CTO|2020||True|
+Simona|Calugi|Clubbing|Co-Founder|2020||True|
+Andreea|Popa|Clubbing|Account Manager|2020||True|
+Nadir|Papini|Clubbing|Co-Founder|2020||True|
+Francesco|Leinardi|Clubbing|Software Engineer|2020||True|
+Iris|Calugi|Clubbing|Social Media Marketing Manager|2020||True|
+Paolo|De Giglio|Colibryx|CEO|2022||True|
+Salvatore|Zola|Collecto App|Co-Founder & CPO|2024||True|
+Giovanni|Camisasca|Collecto App|Co-Founder & CEO|2024||True|
+Matteo|Costantini|Collecto App|Co-Founder & CIO|2024||True|
+Edoardo|Gava|compri|Co-Founder|2024||True|
+Edoardo|Arbizzi|compri|Co-Founder|2024||True|
+Gabriele|Lantini|CON4US|CEO|2021||True|
+Matteo|Ducci|CON4US|Co-Founder|2021||True|
+Marco|Porcaro|Cortilia|Founder|2011||True|
+Maximiliano|Volpi|Cortilia|CFO|2011||True|
+Andrea|Colombo|Cortilia|CEO|2011||True|
+Matteo|Roversi|Cosmico|Co-Founder|2019||True|
+Francesco|Marino|Cosmico|Co-Founder & CEO|2019||True|
+Alessandro|La Rosa|CreationDose|Founder & CEO|2018||True|
+Lorenzo|Tiberi|Crono|Co-Founder|2022||True|
+Alex|Roggero|Crono|Co-Founder & CMO|2022||True|
+Marco|Rosmarini|Crono|Co-Founder & CEO|2022||True|
+Marco|Maddiona|Crono|Co-Founder & CTO|2022||True|
+Domenico|Campeglia|CyberGuardX|CEO|2024||True|
+Alessandro|Risaro|Datapizza|Co-Founder|2021||True|
+Pierpaolo|D'Odorico|Datapizza|Co-Founder|2021||True|
+Lorenzo|Ferretti|DeepTree|Founder|2024||True|
+Giuseppe|Calì|Delfi Security|Founder|2023||True|
+Mirko|Puliafito|Digitiamo.ai|CEO|2020||True|
+Giovanni|Menozzi|Dreamfarm foods|CEO|2021||True|
+Virginia|Padovani|Drilly|Co-Founder|2024||True|
+Gaia|Roncalli|Ecosmic|Founder & COO|2023||True|
+Imane|Marouf|Ecosmic|Founder|2023||True|
+Benedetta|Margrethe Cattani|Ecosmic|Founder & CEO / CTO|2023||True|
+Eduardo|Galletti|Elevatee|Co-Founder|2023||True|
+Andrea|Trotta|Elevatee|Co-Founder|2023||True|
+Luca|Gilardoni|Elibra|President|2017||True|
+Irene|Pugliatti|Eligo eVoting|CEO|2005||True|
+Saverio|Veltri|Eligo eVoting|CTO|2005||True|
+Stefano|Casagrande|Elty|Co-Founder & CEO|2019||True|
+Andrea|Orani|Elty|Co-Founder & CEO|2019||True|
+Lorenza|Silvestri|Empethy|Co-Founder & CMO|2021||True|
+Annamaria|Barbaro|Empethy|Co-Founder & CEO|2021||True|
+Emidio|Granito|Eoliann|Co-Founder|2021||True|
+Roberto|Carnicelli|Eoliann|Co-Founder & CEO|2021||True|
+Giovanni|Luddeni|Eoliann|Co-Founder & CTO|2021||True|
+Chiara|Mugnai|Eoliann|Co-Founder|2021||True|
+Alessio|Polo|FABA|CSO|2019||True|
+Matteo|Fabbrini|FABA|CEO|2019||True|
+Francesco|Poloniato|FABA|Creative Director|2019||True|
+Chiara|Gava|FABA|CPO|2019||True|
+Zahir|Fetovski|FABA|CTO|2019||True|
+Giacomo|Gallazzi|Finanz|Co-Founder|2023||True|
+Matteo|Longoni|Finanz|Co-Founder & CMO|2023||True|
+Alessandro|Caccia|Finanz|Co-Founder & COO|2023||True|
+Lorenzo|Perotta|Finanz|Co-Founder & CEO|2023||True|
+Enrico|Mattiazzi|Fiscozen|CEO|2018||True|
+Simone|Gabbana|Flami|Co-Founder|2023||True|
+Francesca|Bosio|Flami|Co-Founder|2023||True|
+Vittorio|Sileo|Flami|Co-Founder & CEO|2023||True|
+Allegra|Violante|Fler|Co-Founder & CEO|2021||True|
+Francesca|Accordi|Fler|Co-Founder & COO|2021||True|
+Matteo|Mariani|Fluida|CEO|2025||True|
+Fabio|Cermelli|Focoos AI|Co-Founder & CTO|2022||True|
+Antonio|Tavera|Focoos AI|Co-Founder & CEO|2022||True|
+Massimo|Sabatini|Foreverland Food|Co-Founder & CEO|2023||True|
+Giuseppe|D'Alessandro|Foreverland Food|Co-Founder & CMO|2023||True|
+Michele|Mezzanzanica|Freedome|co-founder / co-CEO|2019||True|
+Manuel|Siclari|Freedome|co-founder / co-CEO|2019||True|
+Lapo|Nidiaci|FunniFin - Financial Wellbeing|Co-Founder & CEO|2021||True|
+Leonardo|Capotosto|FunniFin - Financial Wellbeing|Co-Founder & CMO|2021||True|
+Remko|Wiesman|Futura|Co-CEO|2019||True|
+Lorenzo|Pinto|Futura|Founder & CTO|2019||True|
+Francesco|Salvatore|Futura|Founder & CPO|2019||True|
+Andrea|Chirolli|Futura|Founder & Co-Ceo|2019||True|
+Andrea|Cappelletti|Galene.AI|CEO & Founder|2025||True|
+Angelo|Lippolis|Galene.AI|CTO|2025||True|
+Simone|Solidoro|Galene.AI|CMO|2025||True|
+Egidio|De Salve|Galene.AI|CAIO|2025||True|
+Nicolo|Santin|Gamindo|CEO & Co-founder Gamindo|2018||True|
+Mattia|Chiaruttini|Gastona|Co-Founder|2022||True|
+Davide|Catrambone|Geentoo|Co-Founder|2025||True|
+Riccardo|Grassi|Geentoo|Co-Founder|2025||True|
+Pierluigi|Bianchi|Geentoo|Co-Founder|2025||True|
+Samir|Khadem|Geentoo|Co-Founder|2025||True|
+Simonluca|Piazza|Genoa Instruments|CEO|2019||True|
+Matteo|Cera|Glaut|CEO|2024||True|
+Niccolo|Valerio|Glaut|Co-Founder|2024||True|
+Giovanni|Del Gallo|Glaut|Co-Founder|2024||True|
+Filippo|Ronconi|Golee|Co-Founder|2017||True|
+Marco|Morri|Golee|Co-Founder|2017||True|
+Rongou|Zhou|Grateful.social|Co-Founder & CIO|2024||True|
+Emidio|Pesce|Grateful.social|Co-Founder & CEO|2024||True|
+Greta|Beccarello|GRLS|CMO & Co-Founder|2021||True|
+Benedetta|Tornesi|GRLS|CEO & Co-Founder|2021||True|
+Guglielmo| Tornesi|GRLS|CTO & Co-Founder|2021||True|
+Miriam|Sanguineti|GRLS|Head of Design & Co-Founder|2021||True|
+Francesco| Berardinucci|Groupy|Co-fondatore|2024||True|
+Flaminia|Gaia Di Lorenzo|Groupy|Co-Founder|2024||True|
+Antonio|Buongiorno|Groupy|Co-Founder|2024||True|
+Franz|Uhl|Guidoio|Co-Founder|2022||True|
+Lorenzo|Mannari|Guidoio|Co-Founder|2022||True|
+Emanuele|Sanfelici|HAT Music|Co-Founder|2018||True|
+Riccardo|Lapi|HAT Music|Co-Founder|2018||True|
+Gea|Venneri|HAT Music|Co-Founder|2018||True|
+Alice|Cancellario|Heloola|Co-Founder|2019||True|
+Giada|Cancellario|Heloola|Co-Founder & CEO|2019||True|
+Raffaele|Messina|HEU|Co-Founder|2022||True|
+Marco|Santorelli|HEU|Co-Founder|2022||True|
+Stefano|Quinzii|HEU|Co-Founder|2022||True|
+Luca|Visconti|HEU|CEO|2022||True|
+Nicola|Mei|Hi!Founders|Co-Founder|2021||True|
+Simone|Martinelli|Hi!Founders|Managing Director|2021||True|
+Giacomo|Barone|hiop|CEO & Co-Founder|2020||True|
+Vincenzo|Marino|hiop|CCO & Co-Founder|2020||True|
+Enrico|La Sala|hiop|CTO & Co-Founder|2020||True|
+Gianluca|Boleto|Hodlie|Co-Founder|2023||True|
+Lorenzo|Maffia|Hodlie|Co-Founder & CTO|2023||True|
+Gianluca|Sommariva|Hodlie|Co-Founder & CEO|2023||True|
+Matteo|Sandrini|HOFU|Founder|2024||True|
+Francesco|Falamischia|Home2Car|Co-Founder & CEO|2024||True|
+Gabriel|Adams|Home2Car|Co-Founder|2024||True|
+Lorenzo|Ghettini|Home2Car|Co-Founder|2024||True|
+Giuliano|Golfieri|HoverSpect|Co-Founder & COO|2024||True|
+Lorenzo|Rizzello|HoverSpect|Co-Founder & CEO|2024||True|
+Marco|Ramilli|IdentifAI - Find Origin|Founder|2024||True|
+Simone|Alberto|ilmiobrokerassicurativo|Co-Founder & CTO|2023||True|
+Sebastiano|Andreis|ilmiobrokerassicurativo|Co-Founder & CEO|2023||True|
+Duccio|Pasquinelli|Il Punto Economico|Co-Founder & Head of Growth|2020||True|
+Nicola|Travella|Il Punto Economico|Co-Founder & CEO|2020||True|
+Marco|Falcone|indigo.ai|Co-Founder & CTO|2016||True|
+Andrea|Tangredi|indigo.ai|Co-Founder & Chief Product Officer|2016||True|
+Enrico|Bertino|indigo.ai|Co-Founder & Chief Ai Officer|2016||True|
+Gianluca|Maruzzella|indigo.ai|Co-Founder & CEO|2016||True|
+Denis|Peroni|indigo.ai|Chief Product Development Officer|2016||True|
+Matteo|Papaluca|Inscaler|Founder|2024||True|
+Sebastiano|Sicignano|Inspector|CEO|2019||True|
+Andrea|Guzzo|Intella|CTO & Founder|2023||True|
+Stefano|Moret|j4energy|Co-Founder|2023||True|
+Filippo|Lazzarin|j4energy|Co-Founder|2023||True|
+Elia|Turatti|j4energy|Co-Founder|2023||True|
+Marco|Ogliengo|Jet HR|Founder|2024||True|
+Marco|Ogliengo|Jet HR|Founder|2024||True|
+Francesco|Scalambrino|Jet HR|Founder|2024||True|
+Francesco|Scalambrino|Jet HR|Founder|2024||True|
+Martina|Mattone|Joinrs|Co-Founder & CPO|2014||True|
+Gabriele|Giugliano|Joinrs|Co-Founder & CEO|2014||True|
+Nicolo|Bardi|Joinrs|Co-Founder & CMO|2014||True|
+Danilo|Mecozzi|justfolib|CEO|2020||True|
+Nicola|Carnevali|JustinShop|Co-Founder & COO|2023||True|
+Nicola|Faitelli|JustinShop|Co-Founder & CEO|2023||True|
+Alberta|Trombetta|JUSTSOLVE|CEO|2023||True|
+Marco|Alba|Kampaay|Co-Founder & CFO|2019||True|
+Enrico|Berto|Kampaay|Co-Founder & CPO|2019||True|
+Daniele|Arduini|Kampaay|Co-Founder & CEO|2019||True|
+Giovanni|Davalli|Keplero AI|Co-Founder|2023||True|
+Gabriele|Feudo|Keplero AI|Co-Founder & CEO|2023||True|
+Federico|Pedron|Klaaryo|Co-Founder & CEO|2024||True|
+Luca|Tamborino Frisari|Klaaryo|Co-Founder & COO|2024||True|
+Luigi|Adornetto|Klaaryo|Co-Founder & CTO|2024||True|
+Federico|Quarato|Klear|CEO|2024||True|
+Giovanni|Feltrin|Kuba Labs|Co-Founder|2023||True|
+Alessandro|Paladin|Kuba Labs|Co-Founder|2023||True|
+Luca|Mastella|Learnn|Founder & CEO|2019||True|
+Dario|Del Gaizo|LEVELS|Co-Founder|2024||True|
+Tommaso|Lucarelli|LEVELS|Co-Founder|2024||True|
+Emanuele|Baldelli|LEVELS|Co-Founder|2024||True|
+Filippo|Caliò|LEVELS|Co-Founder|2024||True|
+CDP|Venture Capital|LexHero||2021||True|
+Martina|Domenicali|Lexroom.ai|Co-Founder & CSO|2023||True|
+Andrea|Lonza|Lexroom.ai|Co-Founder & CTO|2023||True|
+Paolo|Fois|Lexroom.ai|Co-Founder & CEO|2023||True|
+Riccardo|Tripodi|Liquinvex|Co-Founder & CEO|2022||True|
+Francesco|Meli|Liquinvex|Co-Founder & COO|2022||True|
+Cristian|Bocciarelli|lit|Co-Founder & CTO|2022||True|
+Alessia|Poggi|lit|Co-Founder & CLO|2022||True|
+Luca|Erculiani|lit|R&D Chief|2022||True|
+Alessia|Lucentini|lit|Co-Founder & CEO|2022||True|
+Alina|Docan|Localyte|Co-Founder|2024||True|
+Matteo|Berti|Localyte|Co-Founder|2024||True|
+Valerio|Lomanno|Localyte|Co-Founder|2024||True|
+Gianmarco|Padovano|Lokit|Founder|2021||True|
+Nicola|Simoncelli|Ludotechnic|Founder|2024||True|
+Nicola|Alessi|Lumigo|Co-Founder|2025||True|
+Lorenzo|Pediconi|Lumigo|Co-Founder|2025||True|
+Matteo|Melina|Mangofit|CEO & Founder|2023||True|
+Daniele|Calvo Pollino|Mapo Tapo|Founder|2019||True|
+Antonio|Cambise|Mapo Tapo|Co-Founder & CPO|2019||True|
+Luca|Rillosi|Mastranet AI|Co-Founder|2022||True|
+Emanuele|Rota|Mastranet AI|Co-Founder|2022||True|
+Michele|Pavone|Mastro HR|CCO & Co-founder|2025||True|
+Marta|Della Valle|Mastro HR|CEO & Co-founder|2025||True|
+Leopoldo|Angelini|Menumal|Co-Founder & CEO|2023||True|
+Leonardo|Biagi|Menumal|Co-Founder & CTO|2023||True|
+Giacomo|Salvanelli|MineCrime|CEO|2020||True|
+Samuel|Piatanesi|MineCrime|CTO|2020||True|
+Noemi|Pirazzoli|Miosessuologo|CEO|2021||True|
+Gionatan|Cernusco|mkinf|CTO & Co-Founder|2024||True|
+Veronica|Nigro|mkinf|CEO & Co-Founder|2024||True|
+Francesco|Finazzi|MynDoor|CEO|2021||True|
+Daniele|Brambilla|My Wine Sommelier|Co-Founder & COO|2025||True|
+Rodolfo|Paolo Graziani|My Wine Sommelier|Co-Founder|2025||True|
+Riccardo|Suardi|Nibol|Founder & CEO|2019||True|
+Nicholas|Croci|NotOnlyDesk|Co-Founder|2022||True|
+Luca|De Ciechi|NotOnlyDesk|Co-Founder|2022||True|
+Federico|Visintini|olivia|Co-Founder & CTO|2022||True|
+Francesco|Tansella|olivia|Co-Founder & CEO|2022||True|
+Paolo|Ceffa|olivia|Co-Founder|2022||True|
+Maurizio|Piredda|Optivo Logistics|Co-Founder & CFO|2022||True|
+Giuseppe|Vaccaro|Optivo Logistics|Co-Founder|2022||True|
+Gabriele|Gangemi|Optivo Logistics|Co-Founder & CEO|2022||True|
+Luigi|Pederzani|Orango AI|Co-Founder|2025||True|
+Giacomo|Gentili|Pack|Co-Founder & CPO|2022||True|
+Francesco|Trovato|Paperbox Health|Co-Founder & CEO|2022||True|
+Giacomo|Pratesi|Paperbox Health|Co-Founder & CTO|2022||True|
+Mario|Moschetta|Pathway|Co-Founder & CMO|2024||True|
+Pierluigi|Amati|Pathway|Co-Founder & CTO|2024||True|
+Luigi|Di Marcantonio|Pathway|Co-Founder & COO|2024||True|
+William|Lattanzi|Pathway|Co-Founder & CEO|2024||True|
+Ferdinando|Volpe|PeloMatto|Co-Founder & COO|2023||True|
+William|Selmo|PeloMatto|Co-Founder & CEO|2023||True|
+Tobia|Piovesan|Perpethua|Founder|2024||True|
+Giorgio|Mortini|Pick-Roll|Co-Founder|2018||True|
+Francesco|Pinna|Pick-Roll|CTO & Co-Founder|2018||True|
+Dario|Ferretti|Pick-Roll|CEO & Co-Founder|2018||True|
+Riccardo|Momigliano|Piece|Co-Founder|2023||True|
+Kentaro|Sohara|Piece|Co-Founder|2023||True|
+Loris|Cipollini|Plannest|Co-Founder & COO|2022||True|
+Cosimo|Luigi Mattei|Plannest|CEO|2022||True|
+Luca|Lixi|Plannix|Co-Founder & CEO|2023||True|
+Gian|Mario Bisogno|Plannix|Co-Founder & Product Designer|2023||True|
+Gabriele|Concli|Plannix|Co-Founder & Product Engineer|2023||True|
+Dario|Pedruzzi|Plannix|Co-Founder & CTO|2023||True|
+Simone|Tabellini|play2match|Co-Founder|2025||True|
+Iacopo|Livia|play2match|Co-Founder|2025||True|
+Giacomo|Mantini|play2match|Co-Founder|2025||True|
+Pietro|Galimberti|Plino|CEO & Co-Founder|2023||True|
+Enrico|Castelli|Plino|CTO & Co-Founder|2023||True|
+Viola|Bonesu|Plino|COO & Co-Founder|2023||True|
+Nicola|Comelli|Point-out|Co-Founder|2022||True|
+Filippo|Benetti|Point-out|Co-Founder & CTO|2022||True|
+Fabio|Era|Point-out|Co-Founder|2022||True|
+Marco|Agostini|Poleepo|Co-Founder & CEO|2022||True|
+Marco|Cerquozzi|Poleepo|Co-Founder|2022||True|
+Sandro|Borella|Pratiche Auto Online|Co-Founder|2021||True|
+Edoardo|Guglielmini|Pratiche Auto Online|Co-Founder & CEO|2021||True|
+Riccardo|Basso|pratico.it|Co-Founder & CPO|2022||True|
+Francesco|Musso|pratico.it|Co-Founder & CTO|2022||True|
+Davide|Fenati|pratico.it|Co-Founder & CEO|2022||True|
+Claudine|Rollandin|promama|Founder|2023||True|
+Tommaso|Poliero|Proteso|Co-Founder|2022||True|
+Matteo|Sposito|Proteso|Co-Founder|2022||True|
+Stefano|Toxiri|Proteso|Co-Founder & CEO|2022||True|
+Lorenzo|Diaco|Publytics|CEO|2023||True|
+Ciro|Esposito|Publytics|CFO|2023||True|
+Gianluca|Cocco|Qomodo|Founder|2023||True|
+Gaetano|de Maio|Qomodo|Founder|2023||True|
+Annalisa|Volpe|QSENSATO|Co-Founder|2024||True|
+Ruan|Viljoen|QSENSATO|R&D Scientist|2024||True|
+Vincenzo|Tamborra|QSENSATO|Prototyping & Project Manager|2024||True|
+Gianvito|Lucivero|QSENSATO|Co-Founder & CEO|2024||True|
+Domenico|Tulli|QSENSATO|Co-Founder & CTO|2024||True|
+Francesco|Sessa|Qubitdata|CEO|2024||True|
+Jacopo|Piana|Quick Algorithm|Founder & CEO|2018||True|
+Gianluca|Tirri|Quickfisco|Co-Founder & Managing Director|2022||True|
+Stefano|Moi|Quickfisco|CTO|2022||True|
+Tommaso|Mariotti|Recivu|COO & Co-Founder|2023||True|
+Dariush|Haghighi Tajvar|Recivu|CEO & Co-Founder|2023||True|
+Riccardo|Leonardi|ReLearn|Co-Founder & CEO|2021||True|
+Fabrizio|Custorella|ReLearn|Co-Founder & CFO|2021||True|
+Federico|Fedi|ReLearn|Co-Founder & CTO|2021||True|
+Giovanni|Lucifora|ReLearn|Co-Founder|2021||True|
+Egidio|Canzoniere|ReLearn|Co-Founder|2021||True|
+Simone|Cavariani|ReLearn|Co-Founder & CPO|2021||True|
+Andrea|Pesaresi|Replate|Co-Founder and CTO|2023||True|
+Filippo|Cavallari|Replate|Co-Founder|2023||True|
+Samuele|Berni|Replate|Co-Founder|2023||True|
+Luca|Rinaldi|Replate|Co Founder and CEO|2023||True|
+Tommaso|Farneti|Replate|Co-Founder|2023||True|
+Anass|Tai|Reset|Co-Founder|2023||True|
+Arianna|Dani|Restworld|Co-Founder & COO|2020||True|
+Davide|Lombardi|Restworld|Co-Founder & COO|2020||True|
+Edoardo|Conte|Restworld|Co-Founder & CTO|2020||True|
+Lorenzo|D'Angelo|Restworld|Co-Founder & CFO|2020||True|
+Luca|Lotterio|Restworld|Co-Founder & CEO|2020||True|
+Jacopo|Zenzeri|ReWing|Co-Founder & CEO|2022||True|
+Amel|Cherif|ReWing|Co-Founder & CTO|2022||True|
+Maddalena|Mugnosso|ReWing|Co-Founder & COO|2022||True|
+Vincenzo|Sorice|Rhesus|Co-Founder|2024||True|
+Mauro|Fontanarosa|Rhesus|Co-Founder|2024||True|
+Lucia|Pia De Mizio|Rhesus|Co-Founder|2024||True|
+Boris|Zamparano|Rhesus|Co-Founder|2024||True|
+Chiara|Schettino|Rosso|Co-Founder & CEO|2022||True|
+Filippo|Toni|Rosso|Co-Founder & COO|2022||True|
+Leonardo|Parmeggiani|Safety on Chain|Co-Founder|2023||True|
+Stefano|De La Torre|Safety on Chain|CEO|2023||True|
+Federico|Giannotti|Safety on Chain|CTO|2023||True|
+Gabriele|Mascaro|Safety on Chain|Co-Founder|2023||True|
+Dario|Brignone|Satispay|Co-Founder & CTO|2013||True|
+Alberto|Dalmasso|Satispay|Co-Founder & CEO|2013||True|
+Samuele|Pinta|Satispay|Co-Founder & CFO|2013||True|
+Giacomo|Maggiore|SceneSnap|Co-Founder|2024||True|
+Luca|Cordioli|SceneSnap|Co-Founder & CTO|2024||True|
+Nicolás|Avelar|SceneSnap|Co-Founder & CEO|2024||True|
+Filippo| Maretti|SceneSnap|Software Engineer|2024||True|
+Marco|Vinciguerra|ScrapeGraphAI|Co-Founder|2024||True|
+Lorenzo|Padoan|ScrapeGraphAI|Co-Founder|2024||True|
+Silvia|Wang|Serenis|Co-Founder & CEO|2021||True|
+Daniele|Francescon|Serenis|Co-Founder|2021||True|
+Lorenzo|Liguori|Sibill|Co-Founder|2020||True|
+Mattia|Montepara|Sibill|Co-Founder & CEO|2020||True|
+Dario|Prencipe|Sibill|Co-Founder|2020||True|
+Mattia|Barbarossa|Sidereus Space Dynamics|Founder & CEO|2019||True|
+Nicolò|Fugallo|SimpL|Founder|2022||True|
+Andrea|Codini|Sintropy.ai|CEO & Co-Founder|2025||True|
+Luca|Savastano|Sintropy.ai|CDO & Co-Founder|2025||True|
+Piertobia|Laporta|Sintropy.ai|COO & Co-Founder|2025||True|
+Karim|Kassem|Sintropy.ai|CTO & Co-Founder|2025||True|
+Edoardo|Imparato|Small Giants|Co-Founder|2020||True|
+Francesco|Majno|Small Giants|Co-Founder|2020||True|
+Ann|LoCicero|smartFAB|Founder & CEO|2018||True|
+Alessia|Cacaveri|smartFAB|CMO|2018||True|
+Alessandra|Pennuto|smartFAB|COO|2018||True|
+Eugenio|Bancaro|Smartness|Co-Founder & CTO|2021||True|
+Tommaso|Centonze|Smartness|Co-Founder|2021||True|
+Eugenio|Bancaro|Smartness|Co-Founder & CTO|2021||True|
+Luca|Rodella|Smartness|Co-Founder & CEO|2021||True|
+Tommaso|Centonze|Smartness|Co-Founder|2021||True|
+Luca|Rodella|Smartness|Co-Founder & CEO|2021||True|
+Enrico|De Cupertinis|Solion|Co-Founder & CCO|2020||True|
+Raimondo|Lapillo|Solion|Co-Founder & CEO|2020||True|
+Alessio|Zandegù|Solo Studenti|Business Developer|2024||True|
+Nazareno|Mario Ciccarello|Soource|COO|2024||True|
+Maicol|Verzotto|Soource|CEO|2024||True|
+Cosimo|Franco|Spoki|CTO|2021||True|
+Giorgio|Pagliara|Spoki|CEO|2021||True|
+Giordano|Brachini|SPRNV|Founder|2021||True|
+Valentina|Palazzo|Stakeshare|CEO & Co-Founder|2024||True|
+Hoang|Huynh|Stakeshare|Co-Founder|2024||True|
+Davide|Bodini|Stema|Co-Founder|2022||True|
+Matteo|Gambera|Stema|Co-Founder|2022||True|
+Vito|Lomele|Stema|Co-Founder|2022||True|
+Matteo|Trovò|StepsConnect|Co-Founder & CEO|2022||True|
+Anton|Morale|StepsConnect|Co-Founder & CTO|2022||True|
+Nicolò|Caruzzo|StepsConnect|Co-Founder & COO|2022||True|
+Edoardo|Vallebella|Stip AI|Co-Founder & CEO|2017||True|
+Amir|Salama|Stip AI|Co-Founder & CTO|2017||True|
+Fabrizio|Aiello|Stip AI|Co-Founder & COO|2017||True|
+Roberto|Solari|StrategyX|Software Developer|2024||True|
+Silvia|De Carlo|StrategyX|Head of Design|2024||True|
+Giuseppe|Cela|StrategyX|Founder|2024||True|
+Samuele|Caputo|StrategyX|Web Developer|2024||True|
+Gabriele|Salvi|StudyBuddy|CEO|2023||True|
+Alessio| Gandelli|StudyBuddy|CTO|2023||True|
+Filippo|Rocca|Subbyx|Co-Founder  &  CEO|2023||True|
+Ferruccio|Ferruzzi|Subbyx|Co-Founder  &  CBO|2023||True|
+Francesco| Durighetto|Subbyx|Co-Founder  &  Chief R&D Officer|2023||True|
+Federica|Rossi|Subbyx|Co-Founder  &  CPO|2023||True|
+Fabrizio|Chiara|SUNSPEKER|Founder & CEO|2019||True|
+Francesco|Laffi|Switcho|Co-Founder & CTO|2019||True|
+Marco|Tricarico|Switcho|Co-Founder & CEO|2019||True|
+Redi|Vyshka|Switcho|Co-Founder|2019||True|
+Rosilari|Bellacosa|SynDiag|Co-Founder & CTO|2017||True|
+Federica|Gerace|SynDiag|Co-Founder|2017||True|
+Daniele|Conti|SynDiag|Co-Founder & CEO|2017||True|
+Antonio|Picozzi|Takyon|CEO & Co-Founder|2022||True|
+Niccolò|Francesco Marino|Takyon|C*O & Co-Founder|2022||True|
+Vincenzo|Bonaccorso|Takyon|CTO & Co-Founder|2022||True|
+Fabrizio|Lallo|TechCompenso|Founder|2023||True|
+Edvaldo|G.|TextYess|Co-Founder & CTO|2023||True|
+Riccardo|Russo|TextYess|Co-Founder & CEO|2023||True|
+Ludovico|Grassi|This Unique|Co-Founder & CMO|2021||True|
+Vincenzo|Mansi|This Unique|Co-Founder & CEO|2021||True|
+Alice|Carbonara|This Unique|Co-Founder & COO|2021||True|
+Lisa|Iannello|This Unique|Co-Founder & CPO|2021||True|
+Doris|Messina|Tot|Co-Founder & CEO|2020||True|
+Bruno|Reggiani|Tot|Co-Founder & COO|2020||True|
+Andrea|Susta|Tot|Co-Founder|2020||True|
+Stefan|Grbović|TreeBlock|Co-Founder & CEO|2021||True|
+Alfredo|Sergio Dallari|TreeBlock|Co-Founder & CTO|2021||True|
+Giuseppe|Cristiano De Bernardo|TreeBlock|Co-Founder & CFO|2021||True|
+Andjela|Bozinac|TreeBlock|Co-Founder & CSO|2021||True|
+Marco|Marchesani|TreeBlock|Co-Founder & CMO|2021||True|
+Jules-Arthur|Sastre|Tundr|Co-Founder & CEO|2022||True|
+Giorgio|Seveso|Tundr|Co-Founder|2022||True|
+Davide|Todeschini|TwinPlay.ai|Founder|2022||True|
+Alessandro|Cappellazzo|UchiRent|Co-Founder|2024||True|
+Elia|Romano|UchiRent|Co-Founder & COO|2024||True|
+Thomas|Romano|UchiRent|Co-Founder & CEO|2024||True|
+Simone|Fantinato|UchiRent|Co-Founder|2024||True|
+Savio|Los|Unexpected Italy|Co-Founder|2022||True|
+Elisabetta|Faggiana|Unexpected Italy|Co-Founder|2022||True|
+Lorenzo|Braghetto|Unipiazza|CTO|2018||True|
+Edoardo|Parisi|Unipiazza|CEO|2018||True|
+Umberto|Parisi|Unipiazza|Co-Founder|2018||True|
+Tommaso|Sorrentino|Unipiazza|COO|2018||True|
+Danila|De Stefano|Unobravo|Founder & CEO|2018||True|
+Andrea|Zuanetti|Up2You|Co-Founder & CEO|2019||True|
+Alessandro|Broglia|Up2You|Co-Founder|2019||True|
+Lorenzo|Vendemini|Up2You|Co-Founder & CPO|2019||True|
+Michele|Grazioli|Vedrai|Founder|2020||True|
+Matteo|Masserdotti|Viceversa|CEO & Founder|2020||True|
+Veronica|Fusco|Viel Collection|Founder|2019||True|
+Vincenzo|Vitiello|Vitesy|Co-Founder & CPO|2016||True|
+Paolo|Ganis|Vitesy|Co-Founder & CEO|2016||True|
+Alessio|D'Andrea|Vitesy|Co-Founder & COO|2016||True|
+Alessandro|Galli|Vocations|Co-Founder|2024||True|
+Alessio|Primo Gavinelli|Vocations|Co-Founder|2024||True|
+Simone|Pessina|Vocations|Co-Founder|2024||True|
+Daniel|Kaidanovic|Voidless|Co-Founder & CTO|2022||True|
+Carlo|Villani|Voidless|Co-Founder & CEO|2022||True|
+Mattia|Bertolani|Voidless|Co-Founder & CFO|2022||True|
+Michelangelo|Guarise|Volumio|Founder & CEO|2019||True|
+Giacomo|Stefanini|WAMI - Water with a Mission|Founder|2016||True|
+Carlo|Bettini|Wayla|Co-Founder & CEO|2023||True|
+Alessandro|Villa|Wayla|Co-Founder & COO|2023||True|
+Michele|Quagliata|Wayla|Co-Founder & CLO|2023||True|
+Niccolò|Ferrari|Wayla|Co-Founder|2023||True|
+Mario|Ferretti|Wayla|Co-Founder & CSO|2023||True|
+Samuele|Donato d'Addesio|Weply|Co-Founder|2023||True|
+Davide|Guerrieri|Weply|Co-Founder & CEO|2023||True|
+Fabio|Bin|WeRoad|Co-Founder|2016||True|
+Paolo|De Nadai|WeRoad|Co-Founder|2016||True|
+Erika|De Santi|WeRoad|Co-Founder|2016||True|
+Alessandro|Busso|Wibo|Co-Founder|2019||True|
+Tommaso|Seita|Wibo|Co-Founder & CEO|2019||True|
+Chiara|Petrioli|WSENSE|Founder & CEO|2012||True|
+Cesare|Gamberi|Wyblo|Co-Founder|2020||True|
+Andrea|Ferrero|Young Platform|Co-Founder & Co-CEO|2017||True|
+Alexandru|Stefan G.|Young Platform|Co-Founder & Co-CEO|2017||True|
+Samuele|Raimondo|Young Platform|Co-Founder & CTO|2017||True|
+Leonardo|Vezzati|Zefi.ai|Co-Founder|2022||True|
+Nicola|Sebastianelli|Zefi.ai|Co-Founder & CTO|2022||True|
+Daniele|Borlizzi|Zefi.ai|Co-Founder|2022||True|
+Alexandros|Fokianos|Zefi.ai|Co-Founder|2022||True|
+Aurora|Maggio|Zefi.ai|Co-founder & CEO|2022||True|
+Irene|Simone|Zero Impack|Co-Founder & CEO|2021||True|
+Giulio|Simone|Zero Impack|Co-Founder|2021||True|
+Samuele|Fattori|Zeromy|Co-Founder|2023||True|
+Giacomo|Fattori|Zeromy|Co-Founder|2023||True|
+Giovanni|Turri|Zeromy|Co-Founder|2023||True|
+Gabriele|Rorandelli|Zerow|Co-Founder & CEO|2022||True|
+Alessio|Troisi|Zerow|Co-Founder & COO|2022||True|
+Abbie|Clement|Ziflo|Co-Founder|2024||True|
+Maxim|Ozolin|Ziflo|Co-Founder|2024||True|
+Andrea|Bolognesi|Ziflo|Co-Founder|2024||True|

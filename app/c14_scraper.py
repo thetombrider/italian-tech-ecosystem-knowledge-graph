@@ -309,9 +309,15 @@ class C14Scraper:
                 if not any(f['name'] == founder['name'] for f in self.all_founders):
                     self.all_founders.append(founder)
                 
-                # Add founding relationship
+                # Add founding relationship with separate name and surname
+                full_name = founder['name'].strip()
+                name_parts = full_name.split()
+                person_name = name_parts[0] if name_parts else ""
+                person_surname = ' '.join(name_parts[1:]) if len(name_parts) > 1 else ""
+                
                 self.founding_relationships.append({
-                    'person_name': founder['name'],
+                    'person_name': person_name,
+                    'person_surname': person_surname,
                     'startup_name': name,
                     'role': founder['role'],
                     'founding_date': foundation_date,
@@ -386,6 +392,9 @@ class C14Scraper:
                         # Extract role from second p element within the link
                         role_element = link.select_one('div > div > p:nth-child(2)')
                         role = role_element.get_text(strip=True) if role_element else ""
+                        
+                        # Clean role to avoid CSV issues with pipe separator
+                        role = role.replace('|', ' & ')  # Replace pipe with ampersand
                         
                         if name:
                             founders.append({
