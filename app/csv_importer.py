@@ -115,7 +115,7 @@ class CSVImporter:
             'ANGEL_INVESTS_IN': ['person_name', 'startup_name', 'investment_date'],
             'MANAGES': ['firm_name', 'fund_name', 'start_date'],
             'INVESTS_IN': ['investor_name', 'investor_type', 'startup_name'],
-            'PARTICIPATED_IN': ['investor_name', 'investor_type', 'fund_name', 'commitment_date'],
+            'PARTICIPATED_IN': ['investor_name', 'investor_type', 'fund_name'],
             'ACCELERATED_BY': ['startup_name', 'institution_name', 'program_name', 'start_date'],
             'ACQUIRED': ['corporate_name', 'startup_name', 'acquisition_date'],
             'PARTNERS_WITH': ['corporate_name', 'partner_name', 'partner_type', 'start_date'],
@@ -516,10 +516,18 @@ class CSVImporter:
                 return self.repo.create_investment_relationship(row['investor_name'], row['investor_type'], row['startup_name'], data)
             
             elif relationship_type == 'PARTICIPATED_IN':
+                # Handle NaN values properly
+                commitment_amount = row.get('commitment_amount')
+                commitment_date = row.get('commitment_date')
+                
                 data = {
-                    'commitment_amount': self.parse_number(row.get('commitment_amount', 0)),
-                    'commitment_date': self.parse_date(row['commitment_date']),
-                    'investor_type': row.get('lp_category', 'institutional')
+                    'commitment_amount': self.parse_number(commitment_amount) if not pd.isna(commitment_amount) and str(commitment_amount).strip() else None,
+                    'commitment_date': self.parse_date(commitment_date) if not pd.isna(commitment_date) and str(commitment_date).strip() else None,
+                    'investor_type': row.get('lp_category', 'institutional'),
+                    'fund_vehicle': row.get('fund_vehicle'),
+                    'relationship_type': row.get('relationship_type'),
+                    'notes': row.get('notes'),
+                    'source': row.get('source')
                 }
                 return self.repo.create_lp_participation_relationship(row['investor_name'], row['investor_type'], row['fund_name'], data)
             

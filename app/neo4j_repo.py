@@ -662,29 +662,41 @@ class Neo4jRepository:
 
     def create_lp_participation_relationship(self, investor_name: str, investor_type: str, 
                                            fund_name: str, participation_data: Dict) -> bool:
-        """Create PARTICIPATED_IN relationship (Person/Institution/VC_Firm → VC_Fund)"""
+        """Create PARTICIPATED_IN relationship (VC_Fund → VC_Fund or other LP relationships)"""
+        # Build dynamic SET clauses for optional fields
+        set_clauses = []
+        params = {
+            'investor_name': investor_name,
+            'fund_name': fund_name
+        }
+        
+        # Handle commitment_date (can be null)
+        if participation_data.get('commitment_date'):
+            set_clauses.append("r.commitment_date = date($commitment_date)")
+            params['commitment_date'] = participation_data['commitment_date'].isoformat()
+        
+        # Handle commitment_amount (can be null)
+        if participation_data.get('commitment_amount'):
+            set_clauses.append("r.commitment_amount = $commitment_amount")
+            params['commitment_amount'] = participation_data['commitment_amount']
+        
+        # Handle additional fields
+        for field in ['fund_vehicle', 'relationship_type', 'notes', 'source']:
+            if participation_data.get(field):
+                set_clauses.append(f"r.{field} = ${field}")
+                params[field] = participation_data[field]
+        
+        set_clause = ", ".join(set_clauses) if set_clauses else "r.created = datetime()"
+        
         query = f"""
         MATCH (investor:{investor_type} {{name: $investor_name}})
         MATCH (fund:VC_Fund {{name: $fund_name}})
-        MERGE (investor)-[r:PARTICIPATED_IN {{
-            commitment_date: date($commitment_date)
-        }}]->(fund)
-        ON CREATE SET
-            r.commitment_amount = $commitment_amount,
-            r.investor_type = $investor_type
-        ON MATCH SET
-            r.commitment_amount = $commitment_amount,
-            r.investor_type = $investor_type
+        MERGE (investor)-[r:PARTICIPATED_IN]->(fund)
+        ON CREATE SET {set_clause}
+        ON MATCH SET {set_clause}
         RETURN r
         """
         try:
-            params = {
-                'investor_name': investor_name,
-                'fund_name': fund_name,
-                'commitment_date': participation_data['commitment_date'].isoformat(),
-                'commitment_amount': participation_data['commitment_amount'],
-                'investor_type': participation_data['investor_type']
-            }
             result = self.connection.execute_query(query, params)
             return bool(result)
         except Exception as e:

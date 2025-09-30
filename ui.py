@@ -1724,7 +1724,7 @@ def show_relationship_import():
     
     # Relationship type selection
     relationship_type = st.selectbox("Select relationship type:", 
-                                   ["FOUNDED", "WORKS_AT", "ANGEL_INVESTS_IN", "MANAGES", 
+                                   ["AUTO_DETECT", "FOUNDED", "WORKS_AT", "ANGEL_INVESTS_IN", "MANAGES", 
                                     "INVESTS_IN", "PARTICIPATED_IN", "ACCELERATED_BY", 
                                     "ACQUIRED", "PARTNERS_WITH", "MENTORS", "SPUN_OFF_FROM"])
     

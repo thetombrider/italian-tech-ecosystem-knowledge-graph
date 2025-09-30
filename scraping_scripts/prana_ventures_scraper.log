@@ -1,0 +1,19 @@
+2025-09-30 23:41:30,764 - INFO - Starting Prana Ventures portfolio processing...
+2025-09-30 23:41:30,764 - INFO - Processing 13 portfolio companies
+2025-09-30 23:41:30,764 - INFO - Processing startup 1/13: GetPica
+2025-09-30 23:41:30,764 - INFO - Processing startup 2/13: Green Future Project
+2025-09-30 23:41:30,764 - INFO - Processing startup 3/13: Daze
+2025-09-30 23:41:30,764 - INFO - Processing startup 4/13: BeSafe
+2025-09-30 23:41:30,764 - INFO - Processing startup 5/13: Aryel
+2025-09-30 23:41:30,764 - INFO - Processing startup 6/13: Sharewood
+2025-09-30 23:41:30,764 - INFO - Processing startup 7/13: Ring33
+2025-09-30 23:41:30,764 - INFO - Processing startup 8/13: Ponyu
+2025-09-30 23:41:30,764 - INFO - Processing startup 9/13: Plentiness
+2025-09-30 23:41:30,764 - INFO - Processing startup 10/13: JetHR
+2025-09-30 23:41:30,764 - INFO - Processing startup 11/13: Hygge
+2025-09-30 23:41:30,764 - INFO - Processing startup 12/13: Hercle
+2025-09-30 23:41:30,764 - INFO - Processing startup 13/13: Factanza
+2025-09-30 23:41:30,765 - INFO - Successfully processed 13 startups
+2025-09-30 23:41:30,765 - INFO - Saved 13 startups to prana_ventures_startups_20250930_234130.csv
+2025-09-30 23:41:30,765 - INFO - Saved 13 investment relationships to prana_ventures_investment_relationships_20250930_234130.csv
+2025-09-30 23:41:30,765 - INFO - Saved data to CSV files with timestamp 20250930_234130
