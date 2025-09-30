@@ -803,27 +803,118 @@ def show_entity_resolution():
                                 st.markdown("**Detailed Information:**")
                                 for entity in group:
                                     with st.expander(f"{entity['entity_type']}: {entity['name']}"):
-                                        # Get full entity details
-                                        detail_query = f"""
-                                        MATCH (n)
-                                        WHERE elementId(n) = $id
-                                        RETURN n
-                                        """
-                                        details = st.session_state.repo.connection.execute_query(
-                                            detail_query, {'id': entity['id']}
-                                        )
+                                        # Get full entity details using our new method
+                                        entity_details = st.session_state.repo.get_entity_details(entity['id'])
                                         
-                                        if details:
-                                            entity_props = details[0]['n']
-                                            for key, value in entity_props.items():
+                                        if entity_details:
+                                            st.markdown("**Properties:**")
+                                            for key, value in entity_details['properties'].items():
                                                 if value:
                                                     st.text(f"{key}: {value}")
+                                            
+                                            if entity_details['incoming_relationships']:
+                                                st.markdown("**Incoming Relationships:**")
+                                                for rel in entity_details['incoming_relationships']:
+                                                    if rel['from_entity']:
+                                                        st.text(f"← {rel['from_entity']} ({rel['from_type']}) via {rel['type']}")
+                                            
+                                            if entity_details['outgoing_relationships']:
+                                                st.markdown("**Outgoing Relationships:**")
+                                                for rel in entity_details['outgoing_relationships']:
+                                                    if rel['to_entity']:
+                                                        st.text(f"→ {rel['to_entity']} ({rel['to_type']}) via {rel['type']}")
                         
                         with col2:
-                            st.info("🚧 Merge functionality coming soon")
+                            # Simplified Merge functionality
+                            st.markdown("**🔗 Merge Entities**")
+                            
+                            if len(group) > 1:
+                                # Select primary entity (the one to keep)
+                                entity_options = [f"{entity['name']} ({entity['entity_type']})" for entity in group]
+                                entity_ids = [entity['id'] for entity in group]
+                                
+                                selected_primary_idx = st.selectbox(
+                                    "Choose entity to keep:",
+                                    range(len(entity_options)),
+                                    format_func=lambda x: entity_options[x],
+                                    key=f"primary_{group_idx}",
+                                    help="This entity will be preserved and others will be merged into it"
+                                )
+                                
+                                primary_entity = group[selected_primary_idx]
+                                duplicates_to_merge = [entity for i, entity in enumerate(group) if i != selected_primary_idx]
+                                
+                                st.info(f"Will merge {len(duplicates_to_merge)} entities into **{primary_entity['name']}**")
+                                
+                                # Simple merge button
+                                if st.button(f"🔗 Merge Group", key=f"merge_{group_idx}", type="primary"):
+                                    # Execute the merge with merge_properties strategy
+                                    with st.spinner("Merging entities..."):
+                                        try:
+                                            duplicate_ids = [entity['id'] for entity in duplicates_to_merge]
+                                            success = st.session_state.repo.merge_entities(
+                                                primary_entity['id'],
+                                                duplicate_ids,
+                                                'merge_properties'  # Always use merge_properties
+                                            )
+                                            
+                                            if success:
+                                                st.success(f"✅ Successfully merged {len(duplicate_ids)} entities into '{primary_entity['name']}'!")
+                                                st.info("🔄 Refresh the page to see updated results")
+                                            else:
+                                                st.error("❌ Merge operation failed. Check logs for details.")
+                                        
+                                        except Exception as merge_error:
+                                            st.error(f"❌ Error during merge: {str(merge_error)}")
+                            else:
+                                st.info("Only one entity in group")
                         
                         with col3:
-                            st.info("🗑️ Delete functionality coming soon")
+                            # Enhanced delete functionality
+                            st.markdown("**🗑️ Delete Entities**")
+                            
+                            # Multi-select for deletion
+                            entities_to_delete = st.multiselect(
+                                "Select entities to delete:",
+                                entity_options,
+                                key=f"delete_select_{group_idx}"
+                            )
+                            
+                            if entities_to_delete:
+                                st.warning(f"⚠️ Will permanently delete {len(entities_to_delete)} entities and all their relationships")
+                                
+                                confirm_delete = st.checkbox(
+                                    f"I understand this will permanently delete {len(entities_to_delete)} entities",
+                                    key=f"confirm_delete_{group_idx}"
+                                )
+                                
+                                if confirm_delete:
+                                    if st.button(f"🗑️ Delete Selected", key=f"delete_{group_idx}", type="secondary"):
+                                        with st.spinner("Deleting entities..."):
+                                            try:
+                                                deleted_count = 0
+                                                for entity_name in entities_to_delete:
+                                                    # Find the entity ID
+                                                    entity_idx = entity_options.index(entity_name)
+                                                    entity_id = entity_ids[entity_idx]
+                                                    
+                                                    # Delete the entity
+                                                    delete_query = """
+                                                    MATCH (n) WHERE elementId(n) = $entity_id
+                                                    DETACH DELETE n
+                                                    """
+                                                    
+                                                    st.session_state.repo.connection.execute_query(
+                                                        delete_query, {'entity_id': entity_id}
+                                                    )
+                                                    deleted_count += 1
+                                                
+                                                st.success(f"✅ Successfully deleted {deleted_count} entities!")
+                                                st.info("🔄 Refresh the page to see updated results")
+                                            
+                                            except Exception as delete_error:
+                                                st.error(f"❌ Error during deletion: {str(delete_error)}")
+                                                st.exception(delete_error)
                         
                         st.markdown("---")
                 

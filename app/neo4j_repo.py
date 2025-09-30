@@ -914,3 +914,287 @@ class Neo4jRepository:
         except Exception as e:
             logger.error(f"Failed to get graph data: {e}")
             return {'nodes': [], 'relationships': []}
+    
+    def merge_entities(self, primary_id: str, duplicate_ids: List[str], merge_strategy: str = 'merge_properties') -> bool:
+        """
+        Merge multiple entities into one, transferring all relationships and properties
+        
+        Args:
+            primary_id: ID of the entity to keep (target of merge)
+            duplicate_ids: List of IDs of entities to merge into primary
+            merge_strategy: 'preserve_primary', 'merge_properties', or 'overwrite_primary'
+        
+        Returns:
+            bool: Success status
+        """
+        try:
+            # Start transaction
+            with self.connection.driver.session() as session:
+                with session.begin_transaction() as tx:
+                    
+                    # Get primary entity details
+                    primary_query = "MATCH (primary) WHERE elementId(primary) = $primary_id RETURN primary, labels(primary) as labels"
+                    primary_result = tx.run(primary_query, {'primary_id': primary_id})
+                    primary_record = primary_result.single()
+                    
+                    if not primary_record:
+                        logger.error(f"Primary entity with ID {primary_id} not found")
+                        return False
+                    
+                    primary_entity = primary_record['primary']
+                    primary_labels = primary_record['labels']
+                    
+                    for duplicate_id in duplicate_ids:
+                        # Get duplicate entity details
+                        duplicate_query = "MATCH (duplicate) WHERE elementId(duplicate) = $duplicate_id RETURN duplicate, labels(duplicate) as labels"
+                        duplicate_result = tx.run(duplicate_query, {'duplicate_id': duplicate_id})
+                        duplicate_record = duplicate_result.single()
+                        
+                        if not duplicate_record:
+                            logger.warning(f"Duplicate entity with ID {duplicate_id} not found, skipping")
+                            continue
+                        
+                        duplicate_entity = duplicate_record['duplicate']
+                        duplicate_labels = duplicate_record['labels']
+                        
+                        # Verify entities have compatible labels
+                        if not any(label in primary_labels for label in duplicate_labels):
+                            logger.warning(f"Entities have incompatible labels: {primary_labels} vs {duplicate_labels}")
+                            continue
+                        
+                        # Transfer incoming relationships
+                        transfer_incoming_query = """
+                        MATCH (other)-[r]->(duplicate)
+                        WHERE elementId(duplicate) = $duplicate_id
+                        AND elementId(other) <> $primary_id
+                        MATCH (primary) WHERE elementId(primary) = $primary_id
+                        WITH other, r, primary, type(r) as rel_type, properties(r) as rel_props
+                        
+                        // Check if relationship already exists
+                        OPTIONAL MATCH (other)-[existing_rel]->(primary)
+                        WHERE type(existing_rel) = rel_type
+                        
+                        // Create relationship only if it doesn't exist
+                        FOREACH (x IN CASE WHEN existing_rel IS NULL THEN [1] ELSE [] END |
+                            CALL apoc.create.relationship(other, rel_type, rel_props, primary) YIELD rel
+                            RETURN rel
+                        )
+                        """
+                        
+                        # Transfer outgoing relationships
+                        transfer_outgoing_query = """
+                        MATCH (duplicate)-[r]->(other)
+                        WHERE elementId(duplicate) = $duplicate_id
+                        AND elementId(other) <> $primary_id
+                        MATCH (primary) WHERE elementId(primary) = $primary_id
+                        WITH primary, r, other, type(r) as rel_type, properties(r) as rel_props
+                        
+                        // Check if relationship already exists
+                        OPTIONAL MATCH (primary)-[existing_rel]->(other)
+                        WHERE type(existing_rel) = rel_type
+                        
+                        // Create relationship only if it doesn't exist
+                        FOREACH (x IN CASE WHEN existing_rel IS NULL THEN [1] ELSE [] END |
+                            CALL apoc.create.relationship(primary, rel_type, rel_props, other) YIELD rel
+                            RETURN rel
+                        )
+                        """
+                        
+                        # Execute relationship transfers (fallback without APOC)
+                        # Transfer incoming relationships
+                        simple_incoming_query = """
+                        MATCH (other)-[r]->(duplicate)
+                        WHERE elementId(duplicate) = $duplicate_id
+                        AND elementId(other) <> $primary_id
+                        MATCH (primary) WHERE elementId(primary) = $primary_id
+                        WITH other, r, primary, type(r) as rel_type, properties(r) as rel_props
+                        
+                        MERGE (other)-[new_r:TEMP_REL]->(primary)
+                        SET new_r = rel_props
+                        DELETE r
+                        
+                        // Rename relationship type
+                        CALL {
+                            WITH other, new_r, primary, rel_type
+                            CALL apoc.refactor.setType(new_r, rel_type) YIELD input, output
+                            RETURN output
+                        }
+                        """
+                        
+                        # Simplified approach without APOC
+                        # Get all incoming relationships to transfer
+                        get_incoming_rels_query = """
+                        MATCH (other)-[r]->(duplicate)
+                        WHERE elementId(duplicate) = $duplicate_id
+                        AND elementId(other) <> $primary_id
+                        RETURN elementId(other) as other_id, type(r) as rel_type, properties(r) as rel_props
+                        """
+                        
+                        incoming_rels = tx.run(get_incoming_rels_query, {
+                            'duplicate_id': duplicate_id,
+                            'primary_id': primary_id
+                        })
+                        
+                        for rel_record in incoming_rels:
+                            # Check if relationship already exists
+                            check_existing_query = f"""
+                            MATCH (other) WHERE elementId(other) = $other_id
+                            MATCH (primary) WHERE elementId(primary) = $primary_id
+                            OPTIONAL MATCH (other)-[existing_rel:{rel_record['rel_type']}]->(primary)
+                            RETURN existing_rel IS NOT NULL as exists
+                            """
+                            
+                            exists_result = tx.run(check_existing_query, {
+                                'other_id': rel_record['other_id'],
+                                'primary_id': primary_id
+                            })
+                            
+                            if not exists_result.single()['exists']:
+                                # Create new relationship
+                                create_rel_query = f"""
+                                MATCH (other) WHERE elementId(other) = $other_id
+                                MATCH (primary) WHERE elementId(primary) = $primary_id
+                                CREATE (other)-[r:{rel_record['rel_type']}]->(primary)
+                                SET r = $rel_props
+                                """
+                                
+                                tx.run(create_rel_query, {
+                                    'other_id': rel_record['other_id'],
+                                    'primary_id': primary_id,
+                                    'rel_props': rel_record['rel_props'] or {}
+                                })
+                        
+                        # Get all outgoing relationships to transfer
+                        get_outgoing_rels_query = """
+                        MATCH (duplicate)-[r]->(other)
+                        WHERE elementId(duplicate) = $duplicate_id
+                        AND elementId(other) <> $primary_id
+                        RETURN elementId(other) as other_id, type(r) as rel_type, properties(r) as rel_props
+                        """
+                        
+                        outgoing_rels = tx.run(get_outgoing_rels_query, {
+                            'duplicate_id': duplicate_id,
+                            'primary_id': primary_id
+                        })
+                        
+                        for rel_record in outgoing_rels:
+                            # Check if relationship already exists
+                            check_existing_query = f"""
+                            MATCH (primary) WHERE elementId(primary) = $primary_id
+                            MATCH (other) WHERE elementId(other) = $other_id
+                            OPTIONAL MATCH (primary)-[existing_rel:{rel_record['rel_type']}]->(other)
+                            RETURN existing_rel IS NOT NULL as exists
+                            """
+                            
+                            exists_result = tx.run(check_existing_query, {
+                                'primary_id': primary_id,
+                                'other_id': rel_record['other_id']
+                            })
+                            
+                            if not exists_result.single()['exists']:
+                                # Create new relationship
+                                create_rel_query = f"""
+                                MATCH (primary) WHERE elementId(primary) = $primary_id
+                                MATCH (other) WHERE elementId(other) = $other_id
+                                CREATE (primary)-[r:{rel_record['rel_type']}]->(other)
+                                SET r = $rel_props
+                                """
+                                
+                                tx.run(create_rel_query, {
+                                    'primary_id': primary_id,
+                                    'other_id': rel_record['other_id'],
+                                    'rel_props': rel_record['rel_props'] or {}
+                                })
+                        
+                        # Merge properties based on strategy
+                        if merge_strategy == 'merge_properties':
+                            # Merge non-conflicting properties
+                            merge_props_query = """
+                            MATCH (primary) WHERE elementId(primary) = $primary_id
+                            MATCH (duplicate) WHERE elementId(duplicate) = $duplicate_id
+                            WITH primary, duplicate, 
+                                 [key IN keys(duplicate) WHERE NOT key IN keys(primary) OR primary[key] IS NULL] as keys_to_merge
+                            FOREACH (key IN keys_to_merge |
+                                SET primary[key] = duplicate[key]
+                            )
+                            """
+                            
+                            tx.run(merge_props_query, {
+                                'primary_id': primary_id,
+                                'duplicate_id': duplicate_id
+                            })
+                        
+                        elif merge_strategy == 'overwrite_primary':
+                            # Overwrite primary with duplicate properties
+                            overwrite_props_query = """
+                            MATCH (primary) WHERE elementId(primary) = $primary_id
+                            MATCH (duplicate) WHERE elementId(duplicate) = $duplicate_id
+                            SET primary = duplicate
+                            """
+                            
+                            tx.run(overwrite_props_query, {
+                                'primary_id': primary_id,
+                                'duplicate_id': duplicate_id
+                            })
+                        
+                        # Delete the duplicate entity (and its remaining relationships)
+                        delete_duplicate_query = """
+                        MATCH (duplicate) WHERE elementId(duplicate) = $duplicate_id
+                        DETACH DELETE duplicate
+                        """
+                        
+                        tx.run(delete_duplicate_query, {'duplicate_id': duplicate_id})
+                        
+                        logger.info(f"Successfully merged entity {duplicate_id} into {primary_id}")
+                    
+                    # Commit transaction
+                    tx.commit()
+                    
+                    logger.info(f"Successfully completed merge operation for primary entity {primary_id}")
+                    return True
+                    
+        except Exception as e:
+            logger.error(f"Failed to merge entities: {e}")
+            return False
+    
+    def get_entity_details(self, entity_id: str) -> Optional[Dict[str, Any]]:
+        """Get detailed information about an entity including its relationships"""
+        try:
+            query = """
+            MATCH (entity) WHERE elementId(entity) = $entity_id
+            
+            // Get incoming relationships
+            OPTIONAL MATCH (other)-[r_in]->(entity)
+            WITH entity, collect({
+                type: type(r_in),
+                from_entity: other.name,
+                from_type: labels(other)[0],
+                properties: properties(r_in)
+            }) as incoming_relationships
+            
+            // Get outgoing relationships  
+            OPTIONAL MATCH (entity)-[r_out]->(other)
+            WITH entity, incoming_relationships, collect({
+                type: type(r_out),
+                to_entity: other.name,
+                to_type: labels(other)[0],
+                properties: properties(r_out)
+            }) as outgoing_relationships
+            
+            RETURN {
+                properties: properties(entity),
+                labels: labels(entity),
+                incoming_relationships: incoming_relationships,
+                outgoing_relationships: outgoing_relationships
+            } as entity_details
+            """
+            
+            result = self.connection.execute_query(query, {'entity_id': entity_id})
+            
+            if result:
+                return result[0]['entity_details']
+            return None
+            
+        except Exception as e:
+            logger.error(f"Failed to get entity details: {e}")
+            return None
