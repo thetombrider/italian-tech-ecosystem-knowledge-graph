@@ -5,7 +5,7 @@ from typing import Dict, Any
 import os
 
 # Graph visualization imports
-# from streamlit_agraph import agraph, Node, Edge, Config
+from streamlit_agraph import agraph, Node, Edge, Config
 import networkx as nx
 
 # Import our custom modules
@@ -70,13 +70,17 @@ def main():
     # Main navigation
     page = st.sidebar.selectbox(
         "Choose a page:",
-        ["📊 Dashboard", "📈 Analytics", "➕ Add Entity", "🔗 Add Relationship", "🔍 Search & Browse", "🌐 Graph Visualization", "📤 CSV Import", "🕷️ C14 Scraper"]
+        ["📊 Dashboard", "📈 Analytics", "🚀 Startup Summary", "🔧 Entity Resolution", "➕ Add Entity", "🔗 Add Relationship", "🔍 Search & Browse", "🌐 Graph Visualization", "📤 CSV Import", "🕷️ C14 Scraper"]
     )
     
     if page == "📊 Dashboard":
         show_dashboard()
     elif page == "📈 Analytics":
         show_analytics()
+    elif page == "🚀 Startup Summary":
+        show_startup_summary()
+    elif page == "🔧 Entity Resolution":
+        show_entity_resolution()
     elif page == "➕ Add Entity":
         show_add_entity()
     elif page == "🔗 Add Relationship":
@@ -404,6 +408,479 @@ def show_analytics():
     
     else:
         st.error("No Neo4j connection available.")
+
+def show_startup_summary():
+    """Display comprehensive startup summary with founders, investors and data"""
+    st.header("🚀 Startup Summary")
+    st.markdown("Comprehensive overview of all startups with their founders, investors, and key data")
+    
+    if not st.session_state.repo:
+        st.error("No Neo4j connection available.")
+        return
+    
+    # Filters and controls
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        # Sector filter
+        try:
+            sectors_query = """
+            MATCH (s:Startup) 
+            WHERE s.sector IS NOT NULL AND s.sector <> '' 
+            RETURN DISTINCT s.sector as sector 
+            ORDER BY sector
+            """
+            sectors_result = st.session_state.repo.connection.execute_query(sectors_query)
+            sectors = ['All'] + [record['sector'] for record in sectors_result]
+            selected_sector = st.selectbox("Filter by Sector:", sectors)
+        except Exception as e:
+            st.error(f"Error loading sectors: {e}")
+            selected_sector = 'All'
+    
+    with col2:
+        # Stage filter
+        try:
+            stages_query = """
+            MATCH (s:Startup) 
+            WHERE s.stage IS NOT NULL AND s.stage <> '' 
+            RETURN DISTINCT s.stage as stage 
+            ORDER BY stage
+            """
+            stages_result = st.session_state.repo.connection.execute_query(stages_query)
+            stages = ['All'] + [record['stage'] for record in stages_result]
+            selected_stage = st.selectbox("Filter by Stage:", stages)
+        except Exception as e:
+            st.error(f"Error loading stages: {e}")
+            selected_stage = 'All'
+    
+    with col3:
+        # Limit
+        limit = st.number_input("Number of startups to show:", min_value=10, max_value=500, value=50, step=10)
+    
+    # Search box
+    search_term = st.text_input("🔍 Search startup by name:", placeholder="Enter startup name...")
+    
+    # Build query with filters
+    where_conditions = []
+    params = {'limit': limit}
+    
+    if selected_sector != 'All':
+        where_conditions.append("s.sector = $sector")
+        params['sector'] = selected_sector
+    
+    if selected_stage != 'All':
+        where_conditions.append("s.stage = $stage")
+        params['stage'] = selected_stage
+    
+    if search_term:
+        where_conditions.append("toLower(s.name) CONTAINS toLower($search)")
+        params['search'] = search_term
+    
+    where_clause = "WHERE " + " AND ".join(where_conditions) if where_conditions else ""
+    
+    # Main query to get startup data with founders and investors
+    query = f"""
+    MATCH (s:Startup)
+    {where_clause}
+    
+    // Get founders
+    OPTIONAL MATCH (founder:Person)-[:FOUNDED]->(s)
+    
+    // Get investors
+    OPTIONAL MATCH (investor)-[:INVESTS_IN]->(s)
+    WHERE investor:VC_Firm OR investor:VC_Fund OR investor:Government_VC OR investor:Corporate_VC
+    
+    // Get angel investors
+    OPTIONAL MATCH (angel:Person)-[:ANGEL_INVESTS_IN]->(s)
+    
+    WITH s, 
+         collect(DISTINCT founder.name) as founders,
+         collect(DISTINCT investor.name) as institutional_investors,
+         collect(DISTINCT angel.name) as angel_investors
+    
+    RETURN s.name as startup_name,
+           s.description as description,
+           s.website as website,
+           s.founded_year as founded_year,
+           s.stage as stage,
+           s.sector as sector,
+           s.business_model as business_model,
+           s.headquarters as headquarters,
+           s.employee_count as employee_count,
+           s.total_funding as total_funding,
+           s.status as status,
+           founders,
+           institutional_investors,
+           angel_investors
+    
+    ORDER BY s.name
+    LIMIT $limit
+    """
+    
+    try:
+        with st.spinner("Loading startup data..."):
+            results = st.session_state.repo.connection.execute_query(query, params)
+        
+        if not results:
+            st.info("No startups found matching the criteria.")
+            return
+        
+        st.success(f"Found {len(results)} startups")
+        
+        # Display results
+        for i, record in enumerate(results, 1):
+            with st.expander(f"🚀 {record['startup_name']}", expanded=False):
+                # Basic info section
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.markdown("### 📋 Basic Information")
+                    
+                    # Create info table
+                    info_data = []
+                    if record['description']:
+                        info_data.append(["Description", record['description']])
+                    if record['website']:
+                        info_data.append(["Website", f"[{record['website']}]({record['website']})"])
+                    if record['founded_year']:
+                        info_data.append(["Founded", str(record['founded_year'])])
+                    if record['stage']:
+                        info_data.append(["Stage", record['stage']])
+                    if record['sector']:
+                        info_data.append(["Sector", record['sector']])
+                    if record['business_model']:
+                        info_data.append(["Business Model", record['business_model']])
+                    if record['headquarters']:
+                        info_data.append(["Headquarters", record['headquarters']])
+                    if record['employee_count']:
+                        info_data.append(["Employees", str(record['employee_count'])])
+                    if record['total_funding']:
+                        info_data.append(["Total Funding", f"€{record['total_funding']:,}"])
+                    if record['status']:
+                        info_data.append(["Status", record['status']])
+                    
+                    if info_data:
+                        info_df = pd.DataFrame(info_data, columns=["Field", "Value"])
+                        st.dataframe(info_df, use_container_width=True, hide_index=True)
+                
+                with col2:
+                    st.markdown("### 👥 People & Investors")
+                    
+                    # Founders
+                    if record['founders'] and any(founder for founder in record['founders'] if founder):
+                        st.markdown("**🏗️ Founders:**")
+                        for founder in record['founders']:
+                            if founder:
+                                st.markdown(f"• {founder}")
+                    else:
+                        st.markdown("**🏗️ Founders:** _No founders data available_")
+                    
+                    st.markdown("---")
+                    
+                    # Institutional Investors
+                    if record['institutional_investors'] and any(inv for inv in record['institutional_investors'] if inv):
+                        st.markdown("**🏦 Institutional Investors:**")
+                        for investor in record['institutional_investors']:
+                            if investor:
+                                st.markdown(f"• {investor}")
+                    else:
+                        st.markdown("**🏦 Institutional Investors:** _No institutional investors data available_")
+                    
+                    # Angel Investors
+                    if record['angel_investors'] and any(angel for angel in record['angel_investors'] if angel):
+                        st.markdown("**👼 Angel Investors:**")
+                        for angel in record['angel_investors']:
+                            if angel:
+                                st.markdown(f"• {angel}")
+                    else:
+                        st.markdown("**👼 Angel Investors:** _No angel investors data available_")
+                
+                # Summary metrics
+                st.markdown("### 📊 Quick Stats")
+                metric_col1, metric_col2, metric_col3, metric_col4 = st.columns(4)
+                
+                with metric_col1:
+                    founder_count = len([f for f in record['founders'] if f]) if record['founders'] else 0
+                    st.metric("Founders", founder_count)
+                
+                with metric_col2:
+                    institutional_count = len([i for i in record['institutional_investors'] if i]) if record['institutional_investors'] else 0
+                    st.metric("Institutional Investors", institutional_count)
+                
+                with metric_col3:
+                    angel_count = len([a for a in record['angel_investors'] if a]) if record['angel_investors'] else 0
+                    st.metric("Angel Investors", angel_count)
+                
+                with metric_col4:
+                    total_investors = institutional_count + angel_count
+                    st.metric("Total Investors", total_investors)
+                
+                st.markdown("---")
+    
+    except Exception as e:
+        st.error(f"Error executing query: {e}")
+        st.exception(e)
+
+def show_entity_resolution():
+    """Find and resolve duplicate or similar entities"""
+    st.header("🔧 Entity Resolution & Duplicate Detection")
+    st.markdown("Find entities with identical or similar names for merge, cleanup, and entity resolution")
+    
+    if not st.session_state.repo:
+        st.error("No Neo4j connection available.")
+        return
+    
+    # Controls
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        # Entity type selection
+        entity_types = ["All", "Person", "Startup", "VC_Firm", "VC_Fund", "Institution", "Corporate", "Angel_Syndicate"]
+        selected_type = st.selectbox("Entity Type:", entity_types)
+    
+    with col2:
+        # Similarity threshold
+        similarity_threshold = st.slider("Similarity Threshold:", min_value=0.7, max_value=1.0, value=0.85, step=0.05,
+                                        help="Higher values = more strict matching")
+    
+    with col3:
+        # Max results
+        max_results = st.number_input("Max Groups:", min_value=10, max_value=200, value=50, step=10)
+    
+    # Search mode selection
+    search_mode = st.radio(
+        "Detection Mode:",
+        ["Exact Duplicates", "Similar Names", "Both"],
+        help="Exact: Find identical names, Similar: Find names with fuzzy matching, Both: Combine both methods"
+    )
+    
+    # Additional options
+    col1, col2 = st.columns(2)
+    with col1:
+        ignore_case = st.checkbox("Ignore Case", value=True, help="Case-insensitive matching")
+        ignore_punctuation = st.checkbox("Ignore Punctuation", value=True, help="Ignore dots, dashes, spaces")
+    
+    with col2:
+        min_group_size = st.number_input("Min Group Size:", min_value=2, max_value=10, value=2, 
+                                        help="Minimum number of similar entities to show a group")
+    
+    if st.button("🔍 Find Duplicate/Similar Entities", type="primary"):
+        with st.spinner("Analyzing entities for duplicates and similarities..."):
+            try:
+                # Build base query for getting entities
+                if selected_type == "All":
+                    base_query = """
+                    MATCH (n)
+                    WHERE n.name IS NOT NULL AND n.name <> ''
+                    AND (n:Person OR n:Startup OR n:VC_Firm OR n:VC_Fund OR n:Institution OR n:Corporate OR n:Angel_Syndicate)
+                    RETURN labels(n)[0] as entity_type, n.name as name, elementId(n) as id
+                    ORDER BY n.name
+                    """
+                else:
+                    base_query = f"""
+                    MATCH (n:{selected_type})
+                    WHERE n.name IS NOT NULL AND n.name <> ''
+                    RETURN labels(n)[0] as entity_type, n.name as name, elementId(n) as id
+                    ORDER BY n.name
+                    """
+                
+                entities = st.session_state.repo.connection.execute_query(base_query)
+                
+                if not entities:
+                    st.info("No entities found matching the criteria.")
+                    return
+                
+                st.info(f"Analyzing {len(entities)} entities...")
+                
+                # Function to normalize names for comparison
+                def normalize_name(name):
+                    if not name:
+                        return ""
+                    normalized = name
+                    if ignore_case:
+                        normalized = normalized.lower()
+                    if ignore_punctuation:
+                        import re
+                        normalized = re.sub(r'[^\w\s]', '', normalized)
+                        normalized = re.sub(r'\s+', ' ', normalized).strip()
+                    return normalized
+                
+                # Function to calculate similarity
+                def calculate_similarity(name1, name2):
+                    from difflib import SequenceMatcher
+                    return SequenceMatcher(None, normalize_name(name1), normalize_name(name2)).ratio()
+                
+                # Group similar entities
+                groups = []
+                processed = set()
+                
+                for i, entity1 in enumerate(entities):
+                    if entity1['name'] in processed:
+                        continue
+                    
+                    current_group = [entity1]
+                    processed.add(entity1['name'])
+                    
+                    for j, entity2 in enumerate(entities[i+1:], i+1):
+                        if entity2['name'] in processed:
+                            continue
+                        
+                        # Check for exact or similar matches
+                        is_match = False
+                        
+                        if search_mode in ["Exact Duplicates", "Both"]:
+                            if normalize_name(entity1['name']) == normalize_name(entity2['name']):
+                                is_match = True
+                        
+                        if search_mode in ["Similar Names", "Both"] and not is_match:
+                            similarity = calculate_similarity(entity1['name'], entity2['name'])
+                            if similarity >= similarity_threshold:
+                                is_match = True
+                        
+                        if is_match:
+                            current_group.append(entity2)
+                            processed.add(entity2['name'])
+                    
+                    # Only add groups with minimum size
+                    if len(current_group) >= min_group_size:
+                        groups.append(current_group)
+                
+                # Sort groups by size (largest first)
+                groups.sort(key=len, reverse=True)
+                groups = groups[:max_results]
+                
+                if not groups:
+                    st.success("✅ No duplicate or similar entities found!")
+                    return
+                
+                st.warning(f"⚠️ Found {len(groups)} groups with potential duplicates/similarities")
+                
+                # Display results
+                for group_idx, group in enumerate(groups, 1):
+                    with st.expander(f"🔍 Group {group_idx}: {len(group)} similar entities", expanded=group_idx <= 3):
+                        
+                        # Show similarity matrix for the group
+                        if len(group) > 1 and search_mode in ["Similar Names", "Both"]:
+                            st.markdown("**Similarity Scores:**")
+                            similarity_data = []
+                            for i, entity1 in enumerate(group):
+                                for j, entity2 in enumerate(group[i+1:], i+1):
+                                    similarity = calculate_similarity(entity1['name'], entity2['name'])
+                                    similarity_data.append({
+                                        'Entity 1': entity1['name'],
+                                        'Entity 2': entity2['name'],
+                                        'Similarity': f"{similarity:.3f}",
+                                        'Type 1': entity1['entity_type'],
+                                        'Type 2': entity2['entity_type']
+                                    })
+                            
+                            if similarity_data:
+                                similarity_df = pd.DataFrame(similarity_data)
+                                st.dataframe(similarity_df, use_container_width=True, hide_index=True)
+                        
+                        st.markdown("**Entities in this group:**")
+                        
+                        # Display entities in a table
+                        group_data = []
+                        for entity in group:
+                            group_data.append({
+                                'Name': entity['name'],
+                                'Type': entity['entity_type'],
+                                'Normalized': normalize_name(entity['name']),
+                                'ID': entity['id']
+                            })
+                        
+                        group_df = pd.DataFrame(group_data)
+                        st.dataframe(group_df, use_container_width=True, hide_index=True)
+                        
+                        # Action buttons for this group
+                        st.markdown("**Actions:**")
+                        col1, col2, col3 = st.columns(3)
+                        
+                        with col1:
+                            if st.button(f"🔍 Investigate Group {group_idx}", key=f"investigate_{group_idx}"):
+                                # Show detailed info for each entity
+                                st.markdown("**Detailed Information:**")
+                                for entity in group:
+                                    with st.expander(f"{entity['entity_type']}: {entity['name']}"):
+                                        # Get full entity details
+                                        detail_query = f"""
+                                        MATCH (n)
+                                        WHERE elementId(n) = $id
+                                        RETURN n
+                                        """
+                                        details = st.session_state.repo.connection.execute_query(
+                                            detail_query, {'id': entity['id']}
+                                        )
+                                        
+                                        if details:
+                                            entity_props = details[0]['n']
+                                            for key, value in entity_props.items():
+                                                if value:
+                                                    st.text(f"{key}: {value}")
+                        
+                        with col2:
+                            st.info("🚧 Merge functionality coming soon")
+                        
+                        with col3:
+                            st.info("🗑️ Delete functionality coming soon")
+                        
+                        st.markdown("---")
+                
+                # Summary statistics
+                st.markdown("### 📊 Summary")
+                total_duplicates = sum(len(group) for group in groups)
+                st.metric("Groups Found", len(groups))
+                st.metric("Total Entities in Groups", total_duplicates)
+                
+                # Show distribution by entity type
+                type_counts = {}
+                for group in groups:
+                    for entity in group:
+                        entity_type = entity['entity_type']
+                        type_counts[entity_type] = type_counts.get(entity_type, 0) + 1
+                
+                if type_counts:
+                    st.markdown("**Distribution by Entity Type:**")
+                    type_df = pd.DataFrame(list(type_counts.items()), columns=['Entity Type', 'Count'])
+                    st.dataframe(type_df, use_container_width=True, hide_index=True)
+            
+            except Exception as e:
+                st.error(f"Error during entity resolution: {e}")
+                st.exception(e)
+    
+    # Help section
+    with st.expander("ℹ️ Help & Tips"):
+        st.markdown("""
+        **Entity Resolution Help:**
+        
+        **Detection Modes:**
+        - **Exact Duplicates**: Finds entities with identical names (after normalization)
+        - **Similar Names**: Uses fuzzy string matching to find similar names
+        - **Both**: Combines both methods for comprehensive detection
+        
+        **Similarity Threshold:**
+        - 1.0 = Perfect match only
+        - 0.9 = Very high similarity (recommended for cleanup)
+        - 0.8 = High similarity (may include some false positives)
+        - 0.7 = Moderate similarity (will include many false positives)
+        
+        **Normalization Options:**
+        - **Ignore Case**: "Apple Inc" = "apple inc"
+        - **Ignore Punctuation**: "Apple Inc." = "Apple Inc" = "Apple-Inc"
+        
+        **Common Duplicate Patterns:**
+        - Company names with/without legal suffixes (Inc, Ltd, SRL)
+        - Names with different punctuation or spacing
+        - Names with minor spelling variations
+        - Person names with different formatting (John Smith vs Smith, John)
+        
+        **Best Practices:**
+        1. Start with exact duplicates first
+        2. Use high similarity threshold (0.9+) for initial cleanup
+        3. Review each group carefully before merging
+        4. Keep backups before making changes
+        """)
 
 def show_add_entity():
     """Show forms for adding new entities"""
@@ -1418,7 +1895,7 @@ def show_graph_visualization():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        limit = st.slider("Number of nodes to display:", min_value=10, max_value=200, value=50, step=10)
+        limit = st.slider("Number of nodes to display:", min_value=10, max_value=2000, value=100, step=50)
     
     with col2:
         layout_type = st.selectbox("Layout Type:", 
